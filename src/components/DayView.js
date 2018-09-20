@@ -5,10 +5,12 @@ import TimeBlocks from './TimeBlocks';
 
 export default class DayView extends Component {
   render() {
-    return <div id="day-calendar">
-      <h2>Here is DayView</h2>
+    return  <React.Fragment>
+    <h2>Daily Calendar</h2>
+    <div id="day-calendar">
       <TimeBlocks abbreviation="AM"/>
       <TimeBlocks abbreviation="PM"/>
     </div>
+    </React.Fragment>
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
+import style from '../styles/TimeBlock.css';
 
 export default function(props) {
-  console.log('props', props);
-  return <p>Timeblock {props.number}:00 {props.abbreviation}</p>
+  return <div className="timeblock">{props.number}:00 {props.abbreviation}</div>
 };

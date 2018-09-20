@@ -1,0 +1,10 @@
+.timeblock {
+  border: 1px dotted lightgray;
+  color: darkgray;
+  margin: 4px;
+  padding: 12px;
+}
+
+.timeblock:hover {
+  background-color: lightblue;
+}
