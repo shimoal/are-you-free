@@ -2,9 +2,9 @@ import React from 'react';
 import TimeBlock from './TimeBlock';
 
 export default function() {
-  const timeblocks = [];
-  for (let i = 0; i < 12; i++) {
-    timeblocks.push(<TimeBlock />);
+  const timeblocks = [<TimeBlock number={12}/>];
+  for (let i = 1; i < 12; i++) {
+    timeblocks.push(<TimeBlock number={i}/>);
   }
 
   return (
