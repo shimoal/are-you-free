@@ -4,10 +4,10 @@ import TimeBlocks from './TimeBlocks';
 
 export default class DayView extends Component {
   render() {
-    return <div>
+    return <div id="day-calendar">
       <h2>Here is DayView</h2>
-      <TimeBlocks />
-      <TimeBlocks />
+      <TimeBlocks abbreviation="AM"/>
+      <TimeBlocks abbreviation="PM"/>
     </div>
   }
 }

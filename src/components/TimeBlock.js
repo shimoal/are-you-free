@@ -1,5 +1,6 @@
 import React from 'react';
 
 export default function(props) {
-  return <p>Timeblock {props.number}:00</p>
+  console.log('props', props);
+  return <p>Timeblock {props.number}:00 {props.abbreviation}</p>
 };
