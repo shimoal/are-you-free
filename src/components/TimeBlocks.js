@@ -13,7 +13,7 @@ export default function(props) {
   }
 
   return (
-    <div class="timeblocks">
+    <div className="timeblocks">
       {timeblocks}
     </div>
   );

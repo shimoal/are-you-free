@@ -2,9 +2,18 @@
   border: 1px dotted lightgray;
   color: darkgray;
   margin: 4px;
-  padding: 12px;
+  padding: 0 40px;
 }
 
 .timeblock:hover {
+  cursor: pointer;
+}
+
+.free {
   background-color: lightblue;
+}
+
+
+.busy {
+  background-color: lightpink;
 }
