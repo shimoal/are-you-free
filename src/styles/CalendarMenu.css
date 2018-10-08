@@ -9,3 +9,7 @@ nav div {
 	font-size: 18px;
 	padding: 30px;
 }
+
+nav div:hover {
+	cursor: pointer;
+}

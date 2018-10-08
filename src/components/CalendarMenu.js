@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import '../styles/CalendarMenu.css';
 
+import CalendarMenuItem from './CalendarMenuItem';
+
 export default class CalendarMenu extends Component {
 	render() {
-		const  { setView } = this.props;
+		const  { selectedView, setView } = this.props;
 		return <nav>
-				<div onClick={() => setView('year')}>Year View</div>
-				<div onClick={() => setView('month')}>Month View</div>
-				<div onClick={() => setView('week')}>Week View</div>
-				<div onClick={() => setView('day')}>Day View</div>
+			<CalendarMenuItem selectedView={selectedView} setView={setView} view="year" />
+			<CalendarMenuItem selectedView={selectedView} setView={setView}  view="month" />
+			<CalendarMenuItem selectedView={selectedView} setView={setView}  view="week" />
+			<CalendarMenuItem selectedView={selectedView} setView={setView}  view="day" />
 		</nav>
 	}
 }

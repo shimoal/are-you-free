@@ -30,7 +30,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      	<CalendarMenu setView={(selectedView) => this.setState({selectedView})}/>
+      	<CalendarMenu 
+      		selectedView={this.state.selectedView} 
+      		setView={(selectedView) => this.setState({selectedView})}
+      	/>
         {this.getView()}
       </div>
     );
