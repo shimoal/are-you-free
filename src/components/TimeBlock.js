@@ -1,6 +1,9 @@
 import React from 'react';
 import style from '../styles/TimeBlock.css';
 
+const BUSY_STATUS = 'busy';
+const FREE_STATUS = 'free';
+
 export default class TimeBlock extends React.Component {
   state = {
     isFree: false
@@ -9,7 +12,7 @@ export default class TimeBlock extends React.Component {
   render() {
     const {abbreviation, number} = this.props;
     const {isFree} = this.state;
-    const status = isFree ? 'free' : 'busy';
+    const status = isFree ? FREE_STATUS : BUSY_STATUS;
 
     return (
       <div className={"timeblock " + status} onClick={() => {
