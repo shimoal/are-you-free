@@ -9,7 +9,14 @@ export default class TimeBlock extends React.Component {
   render() {
     const {abbreviation, number, allFree, allBusy} = this.props;
     const {isFree} = this.state;
-    const status = isFree ? 'free' : 'busy';
+    let status;
+    if (allFree) {
+      status = 'free';
+    } else if (allBusy) {
+      status = 'busy';
+    } else {
+      status = isFree ? 'free' : 'busy';
+    }
 
     return (
       <div className={"timeblock " + status} onClick={() => {

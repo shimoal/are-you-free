@@ -15,10 +15,11 @@ export default class DayView extends Component {
     return  <React.Fragment>
       <h2>Daily Calendar</h2>
       <button onClick={() => {
-        console.log('click');
-        this.setState({allFree: true});
+        this.setState({allFree: true, allBusy: false});
       }}>Set all to 'Free'</button>
-      <button>Set all to 'Busy'</button>
+      <button onClick={() => {
+        this.setState({allBusy: true, allFree: false})
+      }}>Set all to 'Busy'</button>
       <div id="day-calendar">
 
         <TimeBlocks abbreviation="AM" allFree={allFree} allBusy={allBusy}/>
