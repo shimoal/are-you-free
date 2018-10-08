@@ -1,11 +1,11 @@
 nav {
-	text-align: center;
 	margin: 12px auto;
+	text-align: center;
 }
 nav div {
+	background-color: lightgreen;
 	display: block;
 	float: left;
-	padding: 30px;
 	font-size: 18px;
-	background-color: lightgreen;
+	padding: 30px;
 }
