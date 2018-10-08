@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../styles/DayView.css';
+import '../styles/DayView.css';
 
 import TimeBlocks from './TimeBlocks';
 

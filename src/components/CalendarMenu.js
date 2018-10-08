@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../styles/CalendarMenu.css';
+import '../styles/CalendarMenu.css';
 
 export default class CalendarMenu extends Component {
 	render() {

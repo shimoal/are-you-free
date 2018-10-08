@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../styles/TimeBlock.css';
+import '../styles/TimeBlock.css';
 
 const BUSY_STATUS = 'busy';
 const FREE_STATUS = 'free';
