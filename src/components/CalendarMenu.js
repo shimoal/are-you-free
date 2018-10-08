@@ -3,13 +3,12 @@ import styles from '../styles/CalendarMenu.css';
 
 export default class CalendarMenu extends Component {
 	render() {
+		const  { setView } = this.props;
 		return <nav>
-
-				<div>Year View</div>
-				<div>Month View</div>
-				<div>Week View</div>
-				<div>Day View</div>
-
+				<div onClick={() => setView('year')}>Year View</div>
+				<div onClick={() => setView('month')}>Month View</div>
+				<div onClick={() => setView('week')}>Week View</div>
+				<div onClick={() => setView('day')}>Day View</div>
 		</nav>
 	}
 }

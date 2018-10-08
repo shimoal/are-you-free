@@ -9,7 +9,7 @@ import YearView from './components/YearView';
 
 class App extends Component {
 	state = {
-		selectedView: 'year'
+		selectedView: 'day'
 	}
 
 	getView() {
@@ -30,7 +30,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      	<CalendarMenu />
+      	<CalendarMenu setView={(selectedView) => this.setState({selectedView})}/>
         {this.getView()}
       </div>
     );
