@@ -1,4 +1,8 @@
-div {
+.weekView {
+	display: grid;
+}
+
+.day {
 	background-color: lightblue;
 	height: 600px;
 	width: 100px;
