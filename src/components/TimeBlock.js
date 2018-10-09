@@ -1,28 +1,15 @@
 import React from 'react';
 import '../styles/TimeBlock.css';
 
-const BUSY_STATUS = 'busy';
-const FREE_STATUS = 'free';
+import TimeUnit from './TimeUnit';
 
 export default class TimeBlock extends React.Component {
-  state = {
-    isFree: false
-  };
-
   render() {
     const {abbreviation, number} = this.props;
-    const {isFree} = this.state;
-    const status = isFree ? FREE_STATUS : BUSY_STATUS;
+    const label = number + ':00' + abbreviation;
 
     return (
-      <div className={"timeblock " + status} onClick={() => {
-        this.setState((prevState) => ({
-          isFree: !prevState.isFree
-        }));
-      }}>
-        <p>{number}:00 {abbreviation}</p>
-        <p>{status}</p>
-      </div>
+      <TimeUnit label={label} height={100} width={180} />
     );
   }
 };
