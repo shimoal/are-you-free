@@ -1,15 +1,13 @@
 .weekView {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	justify-items: center;
 }
 
 .day {
+	align-content: center;
 	background-color: lightblue;
-	height: 600px;
-	width: 100px;
-}
-
-.dayBlock {
 	display: grid;
-	justify-content: center;
+	height: 400px;
+	width: 120px;
 }
