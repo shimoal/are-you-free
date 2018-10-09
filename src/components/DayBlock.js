@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/DayBlock.css';
 
 export default function(props) {
-	return <div>
+	return <div className="dayBlock">
 		<h3>{props.name}</h3>
 		<div className="day" />
 	</div>;
