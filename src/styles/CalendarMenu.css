@@ -4,7 +4,7 @@ nav {
 }
 
 nav div {
-	background-color: lightgreen;
+	background-color: gray;
 	display: block;
 	float: left;
 	font-size: 18px;
@@ -14,4 +14,12 @@ nav div {
 nav div:hover {
 	color: white;
 	cursor: pointer;
+}
+
+.selected {
+	color: #EEE;
+}
+
+.default {
+	color: #1F1F1F;
 }
