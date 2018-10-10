@@ -8,7 +8,7 @@ export default class MonthView extends Component {
 		const days = [];
 
 		for (let i = 1; i <= 31; i++) {
-			days.push(<TimeUnit label={i} key={i} height={100} width={100} />);
+			days.push(<TimeUnit label={i} key={i} height={80} width={60} />);
 		}
 		return (
 			<React.Fragment>
