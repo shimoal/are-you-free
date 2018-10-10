@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../styles/WeekView.css";
 
 import TimeUnit from "./TimeUnit";
-import { DAY_NAMES } from "../helpers/constants";
+import { DAY_NAMES, MONTH_NUMBER_OF_DAYS } from "../helpers/constants";
 
 export default class WeekView extends Component {
 	getWeekDates() {
@@ -12,6 +12,20 @@ export default class WeekView extends Component {
 		const sundayDate = currentdate - dayOfWeek;
 		const saturdayDate = 6 - dayOfWeek + currentdate;
 		return `${sundayDate} - ${saturdayDate}`;
+	}
+
+	getSundayMonthIndex(sundayDate, currentMonthIndex) {
+		if (sundayDate > 0) {
+			return currentMonthIndex;
+		}
+		return currentMonthIndex === 0 ? 11 : currentMonthIndex - 1;
+	}
+
+	getSaturdayMonthIndex(saturdayDate, currentMonthIndex, currentMonth) {
+		if (saturdayDate > MONTH_NUMBER_OF_DAYS[currentMonth]) {
+			return currentMonthIndex;
+		}
+		return currentMonthIndex === 11 ? 0 : currentMonthIndex + 1;
 	}
 
 	render() {
