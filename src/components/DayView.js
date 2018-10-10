@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import "../styles/DayView.css";
 
 import TimeBlocks from "./TimeBlocks";
+import { DAYS_OF_WEEK } from "../helpers/constants";
 
-const DAYS_OF_WEEK = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
+// const DAYS_OF_WEEK = [
+//   "Sunday",
+//   "Monday",
+//   "Tuesday",
+//   "Wednesday",
+//   "Thursday",
+//   "Friday",
+//   "Saturday"
+// ];
 
 export default class DayView extends Component {
   getDayOfWeek() {

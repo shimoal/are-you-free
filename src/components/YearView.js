@@ -2,21 +2,7 @@ import React, { Component } from "react";
 import "../styles/YearView.css";
 
 import TimeUnit from "./TimeUnit";
-
-const MONTH_NAMES = [
-	"January",
-	"February",
-	"March",
-	"April",
-	"May",
-	"June",
-	"July",
-	"August",
-	"September",
-	"October",
-	"November",
-	"December"
-];
+import { MONTH_NAMES } from "../helpers/constants";
 
 export default class YearView extends Component {
 	render() {

@@ -2,16 +2,7 @@ import React, { Component } from "react";
 import "../styles/WeekView.css";
 
 import TimeUnit from "./TimeUnit";
-
-const DAY_NAMES = [
-	"Sunday",
-	"Monday",
-	"Tuesday",
-	"Wednesday",
-	"Thursday",
-	"Friday",
-	"Saturday"
-];
+import { DAYS_OF_WEEK } from "../helpers/constants";
 
 export default class WeekView extends Component {
 	render() {
@@ -19,7 +10,7 @@ export default class WeekView extends Component {
 			<div className="calendar">
 				<h2>Weekly Calendar</h2>
 				<div id="weekView">
-					{DAY_NAMES.map((name, i) => {
+					{DAYS_OF_WEEK.map((name, i) => {
 						return <TimeUnit label={name} key={i} height={300} width={60} />;
 					})}
 				</div>
