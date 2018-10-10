@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import "../styles/DayView.css";
 
 import TimeBlocks from "./TimeBlocks";
-import { DAYS_OF_WEEK } from "../helpers/constants";
+import { DAY_NAMES, MONTH_NAMES } from "../helpers/constants";
 
 export default class DayView extends Component {
   getDayOfWeek() {
     const dayIndex = this.props.date.getDay();
-    return DAYS_OF_WEEK[dayIndex];
+    return DAY_NAMES[dayIndex];
   }
 
   render() {

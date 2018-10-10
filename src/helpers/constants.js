@@ -1,4 +1,4 @@
-const DAYS_OF_WEEK = [
+const DAY_NAMES = [
 	"Sunday",
 	"Monday",
 	"Tuesday",
@@ -23,4 +23,4 @@ const MONTH_NAMES = [
 	"December"
 ];
 
-export { DAYS_OF_WEEK, MONTH_NAMES };
+export { DAY_NAMES, MONTH_NAMES };
