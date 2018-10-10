@@ -28,7 +28,7 @@ class App extends Component {
 	}
 
 	render() {
-		var date = new Date();
+		var date = new Date("02/23/2017");
 		return (
 			<div className="App">
 				<CalendarMenu
