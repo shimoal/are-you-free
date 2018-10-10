@@ -1,43 +1,44 @@
-import React, { Component } from 'react';
-import './styles/App.css';
+import React, { Component } from "react";
+import "./styles/App.css";
 
-import CalendarMenu from './components/CalendarMenu';
-import DayView from './components/DayView';
-import MonthView from './components/MonthView';
-import WeekView from './components/WeekView';
-import YearView from './components/YearView';
+import CalendarMenu from "./components/CalendarMenu";
+import DayView from "./components/DayView";
+import MonthView from "./components/MonthView";
+import WeekView from "./components/WeekView";
+import YearView from "./components/YearView";
 
 class App extends Component {
 	state = {
-		selectedView: 'day'
-	}
+		selectedView: "day"
+	};
 
-	getView() {
+	getView(date) {
 		switch (this.state.selectedView) {
-			case 'day':
-				return <DayView />;
-			case 'week':
-				return <WeekView />;
-			case 'month':
-				return <MonthView />;
-			case 'year':
-				return <YearView />;
-			default: 
-				return <div />
+			case "day":
+				return <DayView date={date} />;
+			case "week":
+				return <WeekView date={date} />;
+			case "month":
+				return <MonthView date={date} />;
+			case "year":
+				return <YearView date={date} />;
+			default:
+				return <div />;
 		}
 	}
 
-  render() {
-    return (
-      <div className="App">
-      	<CalendarMenu 
-      		selectedView={this.state.selectedView} 
-      		setView={(selectedView) => this.setState({selectedView})}
-      	/>
-        {this.getView()}
-      </div>
-    );
-  }
+	render() {
+		var date = new Date();
+		return (
+			<div className="App">
+				<CalendarMenu
+					selectedView={this.state.selectedView}
+					setView={selectedView => this.setState({ selectedView })}
+				/>
+				{this.getView(date)}
+			</div>
+		);
+	}
 }
 
 export default App;

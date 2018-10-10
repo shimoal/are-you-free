@@ -11,10 +11,10 @@ export default class MonthView extends Component {
 			days.push(<TimeUnit label={i} key={i} height={80} width={60} />);
 		}
 		return (
-			<React.Fragment>
+			<div className="calendar">
 				<h2>Monthly Calendar</h2>
 				<div id="month-calendar">{days}</div>
-			</React.Fragment>
+			</div>
 		);
 	}
 }

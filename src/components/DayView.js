@@ -1,21 +1,37 @@
-import React, { Component } from 'react';
-import '../styles/DayView.css';
+import React, { Component } from "react";
+import "../styles/DayView.css";
 
-import TimeBlocks from './TimeBlocks';
+import TimeBlocks from "./TimeBlocks";
+
+const DAYS_OF_WEEK = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
 
 export default class DayView extends Component {
-  render() {
-    return  <React.Fragment>
-      <h2>Daily Calendar</h2>
-      <div id="day-calendar">
+  getDayOfWeek() {
+    const dayIndex = this.props.date.getDay();
+    return DAYS_OF_WEEK[dayIndex];
+  }
 
-        <TimeBlocks 
-          abbreviation="AM" 
-        />
-        <TimeBlocks 
-          abbreviation="PM" 
-          />
-      </div>
-    </React.Fragment>
+  render() {
+    console.log(this.props.date);
+    const day = this.getDayOfWeek();
+    console.log(day);
+
+    return (
+      <React.Fragment>
+        <h2>{day}</h2>
+        <div id="day-calendar">
+          <TimeBlocks abbreviation="AM" />
+          <TimeBlocks abbreviation="PM" />
+        </div>
+      </React.Fragment>
+    );
   }
 }
