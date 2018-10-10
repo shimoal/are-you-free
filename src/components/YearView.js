@@ -21,14 +21,14 @@ const MONTH_NAMES = [
 export default class YearView extends Component {
 	render() {
 		return (
-			<React.Fragment>
+			<div className="calendar">
 				<h2>Yearly Calendar</h2>
 				<div id="yearView">
 					{MONTH_NAMES.map((name, i) => {
-						return <TimeUnit label={name} key={i} height={200} width={200} />;
+						return <TimeUnit label={name} key={i} height={100} width={100} />;
 					})}
 				</div>
-			</React.Fragment>
+			</div>
 		);
 	}
 }

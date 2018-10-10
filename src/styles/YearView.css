@@ -1,6 +1,12 @@
+.calendar {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
 #yearView {
-	background-color: green;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	justify-items: center;
+	width: 800px;
 }
