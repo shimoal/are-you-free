@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles/MonthView.css";
 
 import TimeUnit from "./TimeUnit";
 
