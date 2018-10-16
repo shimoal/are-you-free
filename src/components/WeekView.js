@@ -3,32 +3,18 @@ import "../styles/WeekView.css";
 
 import TimeUnit from "./TimeUnit";
 import { DAY_NAMES, MONTH_NAMES } from "../helpers/constants";
-import { getNumDaysInMonth } from "../helpers/utils";
+import {
+	getNextMonth,
+	getNumDaysInMonth,
+	getNumDaysInPreviousMonth,
+	getPreviousMonth
+} from "../helpers/utils";
 
 export default class WeekView extends Component {
 	getWeekDates() {
-		const { date } = this.props;
-		const currentdate = date.getDate();
-		const dayOfWeek = date.getDay();
 		const sundayDate = this.getSundayDate();
 		const saturdayDate = this.getSaturdayDate();
 		return `${sundayDate} - ${saturdayDate}`;
-	}
-
-	getPreviousMonth(currentMonth) {
-		return currentMonth === 0 ? 11 : currentMonth - 1;
-	}
-
-	getNextMonth(currentMonth) {
-		return currentMonth === 11 ? 0 : currentMonth + 1;
-	}
-
-	getDaysInPreviousMonth(currentMonth, currentYear) {
-		const prevMonthIndex = this.getPreviousMonth(currentMonth);
-
-		const prevMonthYear = currentMonth === 0 ? currentYear - 1 : currentYear;
-
-		return getNumDaysInMonth(prevMonthIndex, prevMonthYear);
 	}
 
 	getSundayDate() {
@@ -43,8 +29,8 @@ export default class WeekView extends Component {
 			return `${currentMonth} ${sundayDate}`;
 		}
 
-		const prevMonthIndex = this.getPreviousMonth(monthIndex);
-		const daysInPrevMonth = this.getDaysInPreviousMonth(monthIndex, year);
+		const prevMonthIndex = getPreviousMonth(monthIndex);
+		const daysInPrevMonth = getNumDaysInPreviousMonth(monthIndex, year);
 
 		const prevMonth = MONTH_NAMES[prevMonthIndex];
 		const dateDay = daysInPrevMonth + sundayDate;
@@ -65,7 +51,7 @@ export default class WeekView extends Component {
 			return `${MONTH_NAMES[date.getMonth()]} ${saturdayDate}`;
 		}
 		const day = saturdayDate - daysInCurrentMonth;
-		const nextMonthIndex = this.getNextMonth(date.getMonth());
+		const nextMonthIndex = getNextMonth(date.getMonth());
 
 		return `${MONTH_NAMES[nextMonthIndex]} ${day}`;
 	}
