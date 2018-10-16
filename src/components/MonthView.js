@@ -3,7 +3,7 @@ import "../styles/MonthView.css";
 
 import TimeUnit from "./TimeUnit";
 import { MONTH_NAMES } from "../helpers/constants";
-import { getNumDaysInMonth } from "../helpers/Utils";
+import { getNumDaysInMonth } from "../helpers/utils";
 
 export default class MonthView extends Component {
 	render() {
