@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import "../styles/MonthView.css";
 
 import TimeUnit from "./TimeUnit";
-import { MONTH_NAMES, MONTH_NUMBER_OF_DAYS } from "../helpers/constants";
+import { MONTH_NAMES } from "../helpers/constants";
+import { getNumDaysInMonth } from "../helpers/Utils";
 
 export default class MonthView extends Component {
 	render() {
 		const { date } = this.props;
 
 		const monthIndex = date.getMonth();
-		const month = MONTH_NAMES[monthIndex];
-		const daysInMonth = MONTH_NUMBER_OF_DAYS[month];
+		const monthName = MONTH_NAMES[monthIndex];
+		const daysInMonth = getNumDaysInMonth(monthIndex + 1, date.getYear());
 
 		const days = [];
 
@@ -20,7 +21,7 @@ export default class MonthView extends Component {
 
 		return (
 			<div className="calendar">
-				<h2>{month}</h2>
+				<h2>{monthName}</h2>
 				<div id="month-calendar">{days}</div>
 			</div>
 		);
