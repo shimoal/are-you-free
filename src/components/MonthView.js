@@ -11,7 +11,7 @@ export default class MonthView extends Component {
 
 		const monthIndex = date.getMonth();
 		const monthName = MONTH_NAMES[monthIndex];
-		const daysInMonth = getNumDaysInMonth(monthIndex + 1, date.getYear());
+		const daysInMonth = getNumDaysInMonth(monthIndex, date.getYear());
 
 		const days = [];
 
