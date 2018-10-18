@@ -1,11 +1,43 @@
-import utils from "./../helpers/utils";
-
-const {
+import {
 	getNextMonth,
 	getNumDaysInMonth,
 	getNumDaysInPreviousMonth,
-	getPreviousMonth
-} = utils;
+	getPreviousMonth,
+	getWeekEndingDate
+} from "./../helpers/utils";
+
+const DATES = [
+	{
+		sampleDate: "10/16/2018",
+		startingDate: "October 14",
+		endingDate: "October 20",
+		weekDates: "October 14 - October 20"
+	},
+	{
+		sampleDate: "02/27/2018",
+		startingDate: "February 25",
+		endingDate: "March 3",
+		weekDates: "February 25 - March 3"
+	},
+	{
+		sampleDate: "05/01/2019",
+		startingDate: "April 28",
+		endingDate: "May 4",
+		weekDates: "April 28 - May 4"
+	},
+	{
+		sampleDate: "12/30/2019",
+		startingDate: "December 29",
+		endingDate: "January 4",
+		weekDates: "December 29 - January 4"
+	},
+	{
+		sampleDate: "01/04/2018",
+		startingDate: "December 31",
+		endingDate: "January 6",
+		weekDates: "December 31 - January 6"
+	}
+];
 
 describe("getNextMonth", () => {
 	it("should exist", () => {
@@ -108,5 +140,18 @@ describe("getPreviousMonth", () => {
 		expect(getPreviousMonth(9)).toEqual(8); // Index of October (9) should return index of September (8)
 		expect(getPreviousMonth(10)).toEqual(9); // Index of November (10) should return index of October (9)
 		expect(getPreviousMonth(11)).toEqual(10); // Index of December (11) should return index of November (10)
+	});
+
+	describe("getWeekEndingDate", () => {
+		it("should be defined", () => {
+			expect(getWeekEndingDate).toBeDefined();
+		});
+
+		it("should return the correct week ending date for any date passed in", () => {
+			DATES.forEach(({ sampleDate, endingDate }) => {
+				let date = new Date(sampleDate);
+				expect(getWeekEndingDate(date)).toEqual(endingDate);
+			});
+		});
 	});
 });
