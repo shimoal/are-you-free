@@ -80,5 +80,6 @@ export {
 	getNumDaysInPreviousMonth,
 	getPreviousMonth,
 	getWeekEndingDate,
+	getWeekStartingDate,
 	getWeekDates
 };

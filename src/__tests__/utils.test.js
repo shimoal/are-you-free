@@ -3,7 +3,8 @@ import {
 	getNumDaysInMonth,
 	getNumDaysInPreviousMonth,
 	getPreviousMonth,
-	getWeekEndingDate
+	getWeekEndingDate,
+	getWeekStartingDate
 } from "./../helpers/utils";
 
 const DATES = [
@@ -151,6 +152,19 @@ describe("getPreviousMonth", () => {
 			DATES.forEach(({ sampleDate, endingDate }) => {
 				let date = new Date(sampleDate);
 				expect(getWeekEndingDate(date)).toEqual(endingDate);
+			});
+		});
+	});
+
+	describe("getWeekStartingDate", () => {
+		it("should be defined", () => {
+			expect(getWeekStartingDate).toBeDefined();
+		});
+
+		it("should return the correct week starting date for any date passed in", () => {
+			DATES.forEach(({ sampleDate, startingDate }) => {
+				let date = new Date(sampleDate);
+				expect(getWeekStartingDate(date)).toEqual(startingDate);
 			});
 		});
 	});
