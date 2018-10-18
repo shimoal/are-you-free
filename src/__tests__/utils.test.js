@@ -41,6 +41,81 @@ const DATES = [
 	}
 ];
 
+const MONTHS = [
+	{
+		monthName: "January",
+		index: 0,
+		previousMonthIndex: 11,
+		nextMonthIndex: 1
+	},
+	{
+		monthName: "February",
+		index: 1,
+		previousMonthIndex: 0,
+		nextMonthIndex: 2
+	},
+	{
+		monthName: "March",
+		index: 2,
+		previousMonthIndex: 1,
+		nextMonthIndex: 3
+	},
+	{
+		monthName: "April",
+		index: 3,
+		previousMonthIndex: 2,
+		nextMonthIndex: 4
+	},
+	{
+		monthName: "May",
+		index: 4,
+		previousMonthIndex: 3,
+		nextMonthIndex: 5
+	},
+	{
+		monthName: "June",
+		index: 5,
+		previousMonthIndex: 4,
+		nextMonthIndex: 6
+	},
+	{
+		monthName: "July",
+		index: 6,
+		previousMonthIndex: 5,
+		nextMonthIndex: 7
+	},
+	{
+		monthName: "August",
+		index: 7,
+		previousMonthIndex: 6,
+		nextMonthIndex: 8
+	},
+	{
+		monthName: "September",
+		index: 8,
+		previousMonthIndex: 7,
+		nextMonthIndex: 9
+	},
+	{
+		monthName: "October",
+		index: 9,
+		previousMonthIndex: 8,
+		nextMonthIndex: 10
+	},
+	{
+		monthName: "November",
+		index: 10,
+		previousMonthIndex: 9,
+		nextMonthIndex: 11
+	},
+	{
+		monthName: "December",
+		index: 11,
+		previousMonthIndex: 10,
+		nextMonthIndex: 0
+	}
+];
+
 describe("getNextMonth", () => {
 	it("should exist", () => {
 		expect(getNextMonth).toBeDefined();
