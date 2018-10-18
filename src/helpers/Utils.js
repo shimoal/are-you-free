@@ -1,3 +1,5 @@
+import { MONTH_NAMES } from "./constants";
+
 const getNextMonth = currentMonth => {
 	// months are numbered 0-11
 	// if the current month is 11 (December), return 0 for January
@@ -25,7 +27,7 @@ const getPreviousMonth = currentMonth => {
 
 // Week ends on Saturday
 // Returns a "MONTH DAY" string of the ending date for the week of the date provided
-getWeekEndingDate = date => {
+const getWeekEndingDate = date => {
 	const currentdate = date.getDate();
 	const dayOfWeek = date.getDay();
 	const saturdayDate = 6 - dayOfWeek + currentdate;
@@ -64,11 +66,18 @@ const getWeekStartingDate = date => {
 	return `${prevMonth} ${dateDay}`;
 };
 
-module.exports = {
+// Returns a string representing the week of the date provided
+// EX: "November 30 - October 6"
+const getWeekDates = date => {
+	const weekStartingDate = getWeekStartingDate(date);
+	const weekEndingDate = getWeekEndingDate(date);
+	return `${weekStartingDate} - ${weekEndingDate}`;
+};
+
+export {
 	getNextMonth,
 	getNumDaysInMonth,
 	getNumDaysInPreviousMonth,
 	getPreviousMonth,
-	getWeekEndingDate,
-	getWeekStartingDate
+	getWeekDates
 };
