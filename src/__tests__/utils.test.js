@@ -140,7 +140,7 @@ const MONTHS = [
 	}
 ];
 
-const NON_LEAP_YEARs = [1900, 2011, 1683];
+const NON_LEAP_YEARS = [1900, 2011, 1683];
 const LEAP_YEARS = [2016, 2020, 2000, 1804];
 
 describe("getNextMonth", () => {
@@ -166,14 +166,16 @@ describe("getNumDaysInMonth", () => {
 		});
 	});
 
-	it("should return the correct number of days for February, including leap years", () => {
-		expect(getNumDaysInMonth(1, 2016)).toEqual(29); //2016 is a leap year
-		expect(getNumDaysInMonth(1, 2020)).toEqual(29); //2020 is a leap year
-		expect(getNumDaysInMonth(1, 2000)).toEqual(29); //2000 is  a leap year
-		expect(getNumDaysInMonth(1, 1900)).toEqual(28); //1900 is not a leap year
-		expect(getNumDaysInMonth(1, 2011)).toEqual(28); //2011 is not a leap year
-		expect(getNumDaysInMonth(1, 1683)).toEqual(28); //1683 is not a leap year
-		expect(getNumDaysInMonth(1, 1804)).toEqual(29); //1804 is  a leap year
+	it("should return 28 days for February in non-leap years", () => {
+		NON_LEAP_YEARS.forEach(year => {
+			expect(getNumDaysInMonth(1, year)).toEqual(28);
+		});
+	});
+
+	it("should return 29 days for February in leap years", () => {
+		LEAP_YEARS.forEach(year => {
+			expect(getNumDaysInMonth(1, year)).toEqual(29);
+		});
 	});
 });
 
@@ -190,14 +192,16 @@ describe("getNumDaysInPreviousMonth", () => {
 		});
 	});
 
-	it("should return the correct number of days for February (when current month is March), including leap years", () => {
-		expect(getNumDaysInPreviousMonth(2, 2016)).toEqual(29); //2016 is a leap year
-		expect(getNumDaysInPreviousMonth(2, 2020)).toEqual(29); //2020 is a leap year
-		expect(getNumDaysInPreviousMonth(2, 2000)).toEqual(29); //2000 is  a leap year
-		expect(getNumDaysInPreviousMonth(2, 1900)).toEqual(28); //1900 is not a leap year
-		expect(getNumDaysInPreviousMonth(2, 2011)).toEqual(28); //2011 is not a leap year
-		expect(getNumDaysInPreviousMonth(2, 1683)).toEqual(28); //1683 is not a leap year
-		expect(getNumDaysInPreviousMonth(2, 1804)).toEqual(29); //1804 is  a leap year
+	it("should return 28 days for March during non-leap years", () => {
+		NON_LEAP_YEARS.forEach(year => {
+			expect(getNumDaysInPreviousMonth(2, year)).toEqual(28);
+		});
+	});
+
+	it("should return 29 days for March during leap years", () => {
+		LEAP_YEARS.forEach(year => {
+			expect(getNumDaysInPreviousMonth(2, year)).toEqual(29);
+		});
 	});
 });
 
