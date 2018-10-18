@@ -46,75 +46,102 @@ const MONTHS = [
 		monthName: "January",
 		index: 0,
 		previousMonthIndex: 11,
-		nextMonthIndex: 1
+		nextMonthIndex: 1,
+		daysInMonth: 31,
+		daysInPreviousMonth: 31 // December has 31 days
 	},
 	{
 		monthName: "February",
 		index: 1,
 		previousMonthIndex: 0,
-		nextMonthIndex: 2
+		nextMonthIndex: 2,
+		daysInMonth: 28, // On non-leap years
+		daysInPreviousMonth: 31 // January has 31 days
 	},
 	{
 		monthName: "March",
 		index: 2,
 		previousMonthIndex: 1,
-		nextMonthIndex: 3
+		nextMonthIndex: 3,
+		daysInMonth: 31,
+		daysInPreviousMonth: 28 // February has 28 days
 	},
 	{
 		monthName: "April",
 		index: 3,
 		previousMonthIndex: 2,
-		nextMonthIndex: 4
+		nextMonthIndex: 4,
+		daysInMonth: 30,
+		daysInPreviousMonth: 31 // March has 31 days
 	},
 	{
 		monthName: "May",
 		index: 4,
 		previousMonthIndex: 3,
-		nextMonthIndex: 5
+		nextMonthIndex: 5,
+		daysInMonth: 31,
+		daysInPreviousMonth: 30 // April has 30 days
 	},
 	{
 		monthName: "June",
 		index: 5,
 		previousMonthIndex: 4,
-		nextMonthIndex: 6
+		nextMonthIndex: 6,
+		daysInMonth: 30,
+		daysInPreviousMonth: 31 // May has 31 days
 	},
 	{
 		monthName: "July",
 		index: 6,
 		previousMonthIndex: 5,
-		nextMonthIndex: 7
+		nextMonthIndex: 7,
+		daysInMonth: 31,
+		daysInPreviousMonth: 30 // June has 30 days
 	},
 	{
 		monthName: "August",
 		index: 7,
 		previousMonthIndex: 6,
-		nextMonthIndex: 8
+		nextMonthIndex: 8,
+		daysInMonth: 31,
+		daysInPreviousMonth: 31 // July has 31 days
 	},
 	{
 		monthName: "September",
 		index: 8,
 		previousMonthIndex: 7,
-		nextMonthIndex: 9
+		nextMonthIndex: 9,
+		daysInMonth: 30,
+		daysInPreviousMonth: 31 // August has 31 days
 	},
 	{
 		monthName: "October",
 		index: 9,
 		previousMonthIndex: 8,
-		nextMonthIndex: 10
+		nextMonthIndex: 10,
+		daysInMonth: 31,
+		daysInPreviousMonth: 30 // September has 30 days
 	},
 	{
 		monthName: "November",
 		index: 10,
 		previousMonthIndex: 9,
-		nextMonthIndex: 11
+		nextMonthIndex: 11,
+		daysInMonth: 30,
+		daysInPreviousMonth: 31 // October has 31 days
 	},
 	{
 		monthName: "December",
 		index: 11,
 		previousMonthIndex: 10,
-		nextMonthIndex: 0
+		nextMonthIndex: 0,
+		daysInMonth: 31,
+		daysInPreviousMonth: 30 // November has 30 days
 	}
 ];
+
+const NON_LEAP_YEARs = [1900, 2011, 1683];
+const LEAP_YEARS = [2016, 2020, 2000, 1804];
 
 describe("getNextMonth", () => {
 	it("should exist", () => {
@@ -134,18 +161,9 @@ describe("getNumDaysInMonth", () => {
 	});
 
 	it("should return the correct number of days for every month", () => {
-		expect(getNumDaysInMonth(0, 2018)).toEqual(31); //January has 31 days
-		expect(getNumDaysInMonth(1, 2018)).toEqual(28); //February has 28 days (on non-leap years)
-		expect(getNumDaysInMonth(2, 2018)).toEqual(31); //March has 31 days
-		expect(getNumDaysInMonth(3, 2018)).toEqual(30); //April has 30 days
-		expect(getNumDaysInMonth(4, 2018)).toEqual(31); //May has 31 days
-		expect(getNumDaysInMonth(5, 2018)).toEqual(30); //June has 30 days
-		expect(getNumDaysInMonth(6, 2018)).toEqual(31); //July has 31 days
-		expect(getNumDaysInMonth(7, 2018)).toEqual(31); //August has 31 days
-		expect(getNumDaysInMonth(8, 2018)).toEqual(30); //September has 30 days
-		expect(getNumDaysInMonth(9, 2018)).toEqual(31); //October has 31 days
-		expect(getNumDaysInMonth(10, 2018)).toEqual(30); //November has 30 days
-		expect(getNumDaysInMonth(11, 2018)).toEqual(31); //December has 31 days
+		MONTHS.forEach(({ index, daysInMonth }) => {
+			expect(getNumDaysInMonth(index, 2018)).toEqual(daysInMonth);
+		});
 	});
 
 	it("should return the correct number of days for February, including leap years", () => {
@@ -165,18 +183,11 @@ describe("getNumDaysInPreviousMonth", () => {
 	});
 
 	it("should return the correct number of days of the previous month for every month in a certain year", () => {
-		expect(getNumDaysInPreviousMonth(0, 2018)).toEqual(31); //December has 31 days
-		expect(getNumDaysInPreviousMonth(1, 2018)).toEqual(31); //January has 31 days
-		expect(getNumDaysInPreviousMonth(2, 2018)).toEqual(28); //February has 28 days (on non-leap years)
-		expect(getNumDaysInPreviousMonth(3, 2018)).toEqual(31); //March has 31 days
-		expect(getNumDaysInPreviousMonth(4, 2018)).toEqual(30); //April has 30 days
-		expect(getNumDaysInPreviousMonth(5, 2018)).toEqual(31); //May has 31 days
-		expect(getNumDaysInPreviousMonth(6, 2018)).toEqual(30); //June has 30 days
-		expect(getNumDaysInPreviousMonth(7, 2018)).toEqual(31); //July has 31 days
-		expect(getNumDaysInPreviousMonth(8, 2018)).toEqual(31); //August has 31 days
-		expect(getNumDaysInPreviousMonth(9, 2018)).toEqual(30); //Septemer has 30 days
-		expect(getNumDaysInPreviousMonth(10, 2018)).toEqual(31); //October has 31 days
-		expect(getNumDaysInPreviousMonth(11, 2018)).toEqual(30); //November has 30 days
+		MONTHS.forEach(({ index, daysInPreviousMonth }) => {
+			expect(getNumDaysInPreviousMonth(index, 2018)).toEqual(
+				daysInPreviousMonth
+			);
+		});
 	});
 
 	it("should return the correct number of days for February (when current month is March), including leap years", () => {
