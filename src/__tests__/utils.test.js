@@ -6,6 +6,21 @@ describe("getNextMonth", () => {
 	it("should exist", () => {
 		expect(getNextMonth).toBeDefined();
 	});
+
+	it("should return the index of the following month", () => {
+		expect(getNextMonth(0)).toEqual(1); // Index of January should return index of February
+		expect(getNextMonth(1)).toEqual(2); // Index of February should return index of February
+		expect(getNextMonth(2)).toEqual(3); // Index of March should return index of February
+		expect(getNextMonth(3)).toEqual(4); // Index of April should return index of February
+		expect(getNextMonth(4)).toEqual(5); // Index of May should return index of February
+		expect(getNextMonth(5)).toEqual(6); // Index of June should return index of February
+		expect(getNextMonth(6)).toEqual(7); // Index of July should return index of February
+		expect(getNextMonth(7)).toEqual(8); // Index of August should return index of February
+		expect(getNextMonth(8)).toEqual(9); // Index of September should return index of February
+		expect(getNextMonth(9)).toEqual(10); // Index of October should return index of February
+		expect(getNextMonth(10)).toEqual(11); // Index of November should return index of December
+		expect(getNextMonth(11)).toEqual(0); // Index of December should return index of January
+	});
 });
 
 describe("getNumDaysInMonth", () => {
