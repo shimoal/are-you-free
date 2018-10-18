@@ -122,18 +122,9 @@ describe("getNextMonth", () => {
 	});
 
 	it("should return the index of the following month", () => {
-		expect(getNextMonth(0)).toEqual(1); // Index of January (0) should return index of February (1)
-		expect(getNextMonth(1)).toEqual(2); // Index of February (1) should return index of March (2)
-		expect(getNextMonth(2)).toEqual(3); // Index of March (2) should return index of April (3)
-		expect(getNextMonth(3)).toEqual(4); // Index of April (3) should return index of May (4)
-		expect(getNextMonth(4)).toEqual(5); // Index of May (4) should return index of June (5)
-		expect(getNextMonth(5)).toEqual(6); // Index of June (5) should return index of July (6)
-		expect(getNextMonth(6)).toEqual(7); // Index of July (6) should return index of August (7)
-		expect(getNextMonth(7)).toEqual(8); // Index of August (7) should return index of September (8)
-		expect(getNextMonth(8)).toEqual(9); // Index of September (8) should return index of October (9)
-		expect(getNextMonth(9)).toEqual(10); // Index of October (9) should return index of November (11)
-		expect(getNextMonth(10)).toEqual(11); // Index of November (10) should return index of December (12)
-		expect(getNextMonth(11)).toEqual(0); // Index of December (11) should return index of January (0)
+		MONTHS.forEach(({ index, nextMonthIndex }) => {
+			expect(getNextMonth(index)).toEqual(nextMonthIndex);
+		});
 	});
 });
 
@@ -205,18 +196,9 @@ describe("getPreviousMonth", () => {
 	});
 
 	it("should return the index of the previous month", () => {
-		expect(getPreviousMonth(0)).toEqual(11); // Index of January (0) should return index of December (11)
-		expect(getPreviousMonth(1)).toEqual(0); // Index of February (1) should return index of January (0)
-		expect(getPreviousMonth(2)).toEqual(1); // Index of March should (2) return index of February (1)
-		expect(getPreviousMonth(3)).toEqual(2); // Index of April (3) should return index of March (2)
-		expect(getPreviousMonth(4)).toEqual(3); // Index of May (4) should return index of April (3)
-		expect(getPreviousMonth(5)).toEqual(4); // Index of June (5) should return index of May (4)
-		expect(getPreviousMonth(6)).toEqual(5); // Index of July (6) should return index of June (5)
-		expect(getPreviousMonth(7)).toEqual(6); // Index of August (7) should return index of July (6)
-		expect(getPreviousMonth(8)).toEqual(7); // Index of September (8) should return index of August (7)
-		expect(getPreviousMonth(9)).toEqual(8); // Index of October (9) should return index of September (8)
-		expect(getPreviousMonth(10)).toEqual(9); // Index of November (10) should return index of October (9)
-		expect(getPreviousMonth(11)).toEqual(10); // Index of December (11) should return index of November (10)
+		MONTHS.forEach(({ index, previousMonthIndex }) => {
+			expect(getPreviousMonth(index)).toEqual(previousMonthIndex);
+		});
 	});
 
 	describe("getWeekEndingDate", () => {
