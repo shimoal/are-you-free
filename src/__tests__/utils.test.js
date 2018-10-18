@@ -1,6 +1,12 @@
 import utils from "./../helpers/utils";
 
-const { getNumDaysInMonth } = utils;
+const { getNextMonth, getNumDaysInMonth } = utils;
+
+describe("getNextMonth", () => {
+	it("should exist", () => {
+		expect(getNextMonth).toBeDefined();
+	});
+});
 
 describe("getNumDaysInMonth", () => {
 	it("should exist", () => {
