@@ -3,7 +3,7 @@ import "../styles/WeekView.css";
 
 import TimeUnit from "./TimeUnit";
 import { DAY_NAMES } from "../helpers/constants";
-// import { getWeekDates } from "../helpers/utils";
+import { getWeekDates } from "../helpers/utils";
 
 export default class WeekView extends Component {
 	render() {
