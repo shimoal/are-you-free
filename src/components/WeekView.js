@@ -9,14 +9,12 @@ export default class WeekView extends Component {
 	render() {
 		return (
 			<div className="calendar">
-				{
-					// <h2>{getWeekDates(this.props.date)}</h2>
-					// <div id="weekView">
-					// 	{DAY_NAMES.map((name, i) => {
-					// 		return <TimeUnit label={name} key={i} height={300} width={60} />;
-					// 	})}
-					// </div>
-				}
+				<h2>{getWeekDates(this.props.date)}</h2>
+				<div id="weekView">
+					{DAY_NAMES.map((name, i) => {
+						return <TimeUnit label={name} key={i} height={300} width={60} />;
+					})}
+				</div>
 			</div>
 		);
 	}
