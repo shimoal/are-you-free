@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import * as React from "react";
+const { Component } = React;
 import "../styles/WeekView.css";
 
-import TimeUnit from "./TimeUnit";
 import { DAY_NAMES } from "../helpers/constants";
 import { getWeekDates } from "../helpers/utils";
+import TimeUnit from "./TimeUnit";
 
-export default class WeekView extends Component {
-	render() {
+export default class WeekView extends Component<{ date: any }> {
+	public render() {
 		return (
 			<div className="calendar">
 				<h2>{getWeekDates(this.props.date)}</h2>

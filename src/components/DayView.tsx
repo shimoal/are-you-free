@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import * as React from "react";
+const { Component } = React;
 import "../styles/DayView.css";
 
-import TimeBlocks from "./TimeBlocks";
 import { DAY_NAMES, MONTH_NAMES } from "../helpers/constants";
+import TimeBlocks from "./TimeBlocks";
 
-export default class DayView extends Component {
-  render() {
+export default class DayView extends Component<{ date: any }> {
+  public render() {
     const { date } = this.props;
 
     const day = DAY_NAMES[date.getDay()];

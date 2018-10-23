@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import * as React from "react";
+const { Component } = React;
 import "./styles/App.css";
 
 import CalendarMenu from "./components/CalendarMenu";
@@ -7,12 +8,12 @@ import MonthView from "./components/MonthView";
 import WeekView from "./components/WeekView";
 import YearView from "./components/YearView";
 
-class App extends Component {
-	state = {
+class App extends Component<{}, { selectedView: string }> {
+	public state = {
 		selectedView: "day"
 	};
 
-	getView(date) {
+	public getView(date: any) {
 		switch (this.state.selectedView) {
 			case "day":
 				return <DayView date={date} />;
@@ -27,13 +28,14 @@ class App extends Component {
 		}
 	}
 
-	render() {
-		var date = new Date();
+	public render() {
+		const date = new Date();
+		const setView = (selectedView: string) => this.setState({ selectedView });
 		return (
 			<div className="App">
 				<CalendarMenu
 					selectedView={this.state.selectedView}
-					setView={selectedView => this.setState({ selectedView })}
+					setView={setView}
 				/>
 				{this.getView(date)}
 			</div>

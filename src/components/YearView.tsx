@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import * as React from "react";
+const { Component } = React;
 import "../styles/YearView.css";
 
-import TimeUnit from "./TimeUnit";
 import { MONTH_NAMES } from "../helpers/constants";
+import TimeUnit from "./TimeUnit";
 
-export default class YearView extends Component {
-	render() {
+export default class YearView extends Component<{ date: any }> {
+	public render() {
 		const { date } = this.props;
 
 		return (

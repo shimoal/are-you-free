@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import * as React from "react";
+const { Component } = React;
 import "../styles/MonthView.css";
 
-import TimeUnit from "./TimeUnit";
 import { MONTH_NAMES } from "../helpers/constants";
 import { getNumDaysInMonth } from "../helpers/utils";
+import TimeUnit from "./TimeUnit";
 
-export default class MonthView extends Component {
-	render() {
+export default class MonthView extends Component<{ date: any }> {
+	public render() {
 		const { date } = this.props;
 
 		const monthIndex = date.getMonth();
@@ -16,7 +17,9 @@ export default class MonthView extends Component {
 		const days = [];
 
 		for (let i = 1; i <= daysInMonth; i++) {
-			days.push(<TimeUnit label={i} key={i} height={80} width={60} />);
+			days.push(
+				<TimeUnit label={i.toString()} key={i} height={80} width={60} />
+			);
 		}
 
 		return (
