@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/shimoal/are-you-free/issues"
   },
-  "homepage": "https://github.com/shimoal/are-you-free#readme"
+  "homepage": "https://github.com/shimoal/are-you-free#readme",
+  "dependencies": {
+    "concurrently": "^4.0.1",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.5"
+  }
 }
