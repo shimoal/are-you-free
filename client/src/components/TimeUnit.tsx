@@ -20,16 +20,15 @@ export default class TimeBlock extends React.Component<
     const { label, height, width } = this.props;
     const { isFree } = this.state;
     const status = isFree ? FREE_STATUS : BUSY_STATUS;
-    const click: () => void = () => {
-      this.setState(prevState => ({
-        isFree: !prevState.isFree
-      }));
-    };
 
     return (
       <div
         className={"timeblock " + status}
-        onClick={click}
+        onClick={() => {
+          this.setState(prevState => ({
+            isFree: !prevState.isFree
+          }));
+        }}
         style={{ height, width }}
       >
         <p>{label}</p>

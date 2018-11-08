@@ -30,12 +30,12 @@ class App extends Component<{}, { selectedView: string }> {
 
 	render() {
 		const date = new Date();
-		const setView = (selectedView: string) => this.setState({ selectedView });
+
 		return (
 			<div className="App">
 				<CalendarMenu
 					selectedView={this.state.selectedView}
-					setView={setView}
+					setView={(selectedView: string) => this.setState({ selectedView })}
 				/>
 				{this.getView(date)}
 			</div>

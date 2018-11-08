@@ -9,6 +9,7 @@
 		]
 	},
 	"rules": {
+		"jsx-no-lambda": false,
 		"member-access": [true, "no-public"]
 	}
 }

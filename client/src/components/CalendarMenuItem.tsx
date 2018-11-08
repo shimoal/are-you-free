@@ -10,9 +10,8 @@ export default function(props: {
 	const viewName = view.charAt(0).toUpperCase() + view.slice(1);
 	const className = selectedView === view ? "selected" : "default";
 
-	const click: () => void = () => setView(view);
 	return (
-		<div className={className} onClick={click}>
+		<div className={className} onClick={() => setView(view)}>
 			{viewName} View
 		</div>
 	);
