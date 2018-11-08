@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const db = require("./db/database.js");
 
 if (process.env.NODE_ENV === "production") {
 	// serve production assests
