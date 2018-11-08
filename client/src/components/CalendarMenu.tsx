@@ -8,7 +8,7 @@ export default class CalendarMenu extends Component<{
 	selectedView: string;
 	setView: (x: string) => void;
 }> {
-	public render() {
+	render() {
 		const { selectedView, setView } = this.props;
 		return (
 			<nav>

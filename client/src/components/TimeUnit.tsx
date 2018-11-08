@@ -12,11 +12,11 @@ export default class TimeBlock extends React.Component<
   },
   { isFree: boolean }
 > {
-  public state = {
+  state = {
     isFree: false
   };
 
-  public render() {
+  render() {
     const { label, height, width } = this.props;
     const { isFree } = this.state;
     const status = isFree ? FREE_STATUS : BUSY_STATUS;

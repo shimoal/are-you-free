@@ -7,7 +7,7 @@ import { getNumDaysInMonth } from "../helpers/utils";
 import TimeUnit from "./TimeUnit";
 
 export default class MonthView extends Component<{ date: any }> {
-	public render() {
+	render() {
 		const { date } = this.props;
 
 		const monthIndex = date.getMonth();

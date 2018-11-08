@@ -7,7 +7,7 @@ import { getWeekDates } from "../helpers/utils";
 import TimeUnit from "./TimeUnit";
 
 export default class WeekView extends Component<{ date: any }> {
-	public render() {
+	render() {
 		return (
 			<div className="calendar">
 				<h2>{getWeekDates(this.props.date)}</h2>

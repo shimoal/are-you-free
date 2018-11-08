@@ -9,11 +9,11 @@ import WeekView from "./components/WeekView";
 import YearView from "./components/YearView";
 
 class App extends Component<{}, { selectedView: string }> {
-	public state = {
+	state = {
 		selectedView: "day"
 	};
 
-	public getView(date: any) {
+	getView(date: any) {
 		switch (this.state.selectedView) {
 			case "day":
 				return <DayView date={date} />;
@@ -28,7 +28,7 @@ class App extends Component<{}, { selectedView: string }> {
 		}
 	}
 
-	public render() {
+	render() {
 		const date = new Date();
 		const setView = (selectedView: string) => this.setState({ selectedView });
 		return (

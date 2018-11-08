@@ -6,7 +6,7 @@ import { DAY_NAMES, MONTH_NAMES } from "../helpers/constants";
 import TimeBlocks from "./TimeBlocks";
 
 export default class DayView extends Component<{ date: any }> {
-  public render() {
+  render() {
     const { date } = this.props;
 
     const day = DAY_NAMES[date.getDay()];

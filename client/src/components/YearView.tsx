@@ -6,7 +6,7 @@ import { MONTH_NAMES } from "../helpers/constants";
 import TimeUnit from "./TimeUnit";
 
 export default class YearView extends Component<{ date: any }> {
-	public render() {
+	render() {
 		const { date } = this.props;
 
 		return (
