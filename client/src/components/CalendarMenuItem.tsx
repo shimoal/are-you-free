@@ -2,7 +2,7 @@ import * as React from "react";
 
 export default function(props: {
 	selectedView: string;
-	setView: (x: string) => void;
+	setView: (view: string) => void;
 	view: string;
 }) {
 	const { selectedView, setView, view } = props;

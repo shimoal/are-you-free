@@ -6,10 +6,11 @@ import CalendarMenuItem from "./CalendarMenuItem";
 
 export default class CalendarMenu extends Component<{
 	selectedView: string;
-	setView: (x: string) => void;
+	setView: (view: string) => void;
 }> {
 	render() {
 		const { selectedView, setView } = this.props;
+
 		return (
 			<nav>
 				<CalendarMenuItem

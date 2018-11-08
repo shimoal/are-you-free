@@ -30,6 +30,7 @@ class App extends Component<{}, { selectedView: string }> {
 
 	render() {
 		const date = new Date();
+		const calendarView = this.getView(date);
 
 		return (
 			<div className="App">
@@ -37,7 +38,7 @@ class App extends Component<{}, { selectedView: string }> {
 					selectedView={this.state.selectedView}
 					setView={(selectedView: string) => this.setState({ selectedView })}
 				/>
-				{this.getView(date)}
+				{calendarView}
 			</div>
 		);
 	}
