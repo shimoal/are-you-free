@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/shimoal/are-you-free#readme",
   "dependencies": {
-    "@types/materialize-css": "^1.0.5",
     "concurrently": "^4.0.1",
     "express": "^4.16.4",
     "nodemon": "^1.18.5",
