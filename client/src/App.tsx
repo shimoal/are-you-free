@@ -2,11 +2,11 @@ import * as React from "react";
 const { Component } = React;
 import "./styles/App.css";
 
-import CalendarMenu from "./components/CalendarMenu";
-import DayView from "./components/DayView";
-import MonthView from "./components/MonthView";
-import WeekView from "./components/WeekView";
-import YearView from "./components/YearView";
+import CalendarMenu from "./components/calendarViews/CalendarMenu";
+import DayView from "./components/calendarViews/DayView";
+import MonthView from "./components/calendarViews/MonthView";
+import WeekView from "./components/calendarViews/WeekView";
+import YearView from "./components/calendarViews/YearView";
 
 class App extends Component<{}, { selectedView: string }> {
 	state = {

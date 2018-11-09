@@ -1,8 +1,8 @@
 import * as React from "react";
 const { Component } = React;
-import "../styles/YearView.css";
+import "../../styles/YearView.css";
 
-import { MONTH_NAMES } from "../helpers/constants";
+import { MONTH_NAMES } from "../../helpers/constants";
 import TimeUnit from "./TimeUnit";
 
 export default class YearView extends Component<{ date: any }> {

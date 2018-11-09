@@ -1,9 +1,9 @@
 import * as React from "react";
 const { Component } = React;
-import "../styles/MonthView.css";
+import "../../styles/MonthView.css";
 
-import { MONTH_NAMES } from "../helpers/constants";
-import { getNumDaysInMonth } from "../helpers/utils";
+import { MONTH_NAMES } from "../../helpers/constants";
+import { getNumDaysInMonth } from "../../helpers/utils";
 import TimeUnit from "./TimeUnit";
 
 export default class MonthView extends Component<{ date: any }> {

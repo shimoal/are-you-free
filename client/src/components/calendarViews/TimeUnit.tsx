@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles/TimeUnit.css";
+import "../../styles/TimeUnit.css";
 
 const BUSY_STATUS = "busy";
 const FREE_STATUS = "free";

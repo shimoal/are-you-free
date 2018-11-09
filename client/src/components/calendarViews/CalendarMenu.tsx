@@ -1,6 +1,6 @@
 import * as React from "react";
 const { Component } = React;
-import "../styles/CalendarMenu.css";
+import "../../styles/CalendarMenu.css";
 
 import CalendarMenuItem from "./CalendarMenuItem";
 

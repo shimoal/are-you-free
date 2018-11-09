@@ -1,8 +1,8 @@
 import * as React from "react";
 const { Component } = React;
-import "../styles/DayView.css";
+import "../../styles/DayView.css";
 
-import { DAY_NAMES, MONTH_NAMES } from "../helpers/constants";
+import { DAY_NAMES, MONTH_NAMES } from "../../helpers/constants";
 import TimeBlocks from "./TimeBlocks";
 
 export default class DayView extends Component<{ date: any }> {

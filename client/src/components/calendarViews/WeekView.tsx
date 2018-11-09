@@ -1,9 +1,9 @@
 import * as React from "react";
 const { Component } = React;
-import "../styles/WeekView.css";
+import "../../styles/WeekView.css";
 
-import { DAY_NAMES } from "../helpers/constants";
-import { getWeekDates } from "../helpers/utils";
+import { DAY_NAMES } from "../../helpers/constants";
+import { getWeekDates } from "../../helpers/utils";
 import TimeUnit from "./TimeUnit";
 
 export default class WeekView extends Component<{ date: any }> {
