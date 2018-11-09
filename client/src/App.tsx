@@ -15,7 +15,7 @@ class App extends Component<{}, { selectedView: string }> {
 				<BrowserRouter>
 					<div>
 						<NavBar />
-						<Route path="/" component={Landing} />
+						<Route exact path="/" component={Landing} />
 						<Route exact path="/events" component={Dashboard} />
 						<Route exact path="/events/new" component={CreateEvent} />
 					</div>
