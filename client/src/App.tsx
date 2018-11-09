@@ -7,7 +7,7 @@ import Landing from "./components/Landing";
 class App extends Component<{}, { selectedView: string }> {
 	render() {
 		return (
-			<div className="App">
+			<div className="container">
 				<Landing />
 			</div>
 		);
