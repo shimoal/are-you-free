@@ -21,7 +21,7 @@ export default () => {
 						<a href="#">Navbar Link</a>
 					</li>
 				</ul>
-				<a className="sidenav=trigger" href="#" data-target="nav-mobile">
+				<a className="sidenav-trigger" href="#" data-target="nav-mobile">
 					<i className="material-icons">menu</i>
 				</a>
 			</div>
