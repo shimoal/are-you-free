@@ -10,8 +10,11 @@ export default () => {
 				</h5>
 			</div>
 			<div className="row center">
-				<a href="#" className="btn-large waves-effect waves-light orange">
-					Get Started
+				<a
+					href="/events/new"
+					className="btn-large waves-effect waves-light orange"
+				>
+					Create an Event
 				</a>
 			</div>
 		</div>
