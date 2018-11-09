@@ -9,6 +9,11 @@ export default () => {
 					Easy and simple event coordination for groups!
 				</h5>
 			</div>
+			<div className="row center">
+				<a href="#" className="btn-large waves-effect waves-light orange">
+					Get Started
+				</a>
+			</div>
 		</div>
 	);
 };
