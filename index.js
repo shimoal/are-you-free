@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const db = require("./db/database.js");
 
+require("./routes/eventRoutes")(app);
+
 if (process.env.NODE_ENV === "production") {
 	// serve production assests
 	app.use(express.static("client/build"));
