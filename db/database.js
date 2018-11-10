@@ -1,7 +1,7 @@
 const database = require("./models");
 
-database.sequelize
-	.sync()
+database
+	.authenticate()
 	.then(function(err) {
 		console.log("Connection has been established successfully.");
 	})

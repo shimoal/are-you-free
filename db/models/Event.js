@@ -1,15 +1,18 @@
-const event = (sequelize, DataTypes) => {
-	const Event = sequelize.define("event", {
-		createdBy: {
-			type: DataTypes.STRING
-		},
-		title: {
-			type: DataTypes.STRING
-		},
-		eventType: {
-			type: DataTypes.STRING
-		}
-	});
-};
+const Sequelize = require("sequelize");
+const db = require("../database");
 
-module.exports = event;
+const Event = db.define("event", {
+	createdBy: {
+		type: Sequelize.STRING
+	},
+	title: {
+		type: Sequelize.STRING
+	},
+	eventType: {
+		type: Sequelize.STRING
+	}
+});
+
+db.sync();
+
+module.exports = Event;

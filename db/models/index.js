@@ -9,11 +9,4 @@ const sequelize = new Sequelize(db, username, password, {
 	dialect: "postgres"
 });
 
-const models = {
-	Event: sequelize.import("./Event")
-};
-
-models.sequelize = sequelize;
-models.Sequelize = Sequelize;
-
-module.exports = models;
+module.exports = sequelize;
