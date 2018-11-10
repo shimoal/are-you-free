@@ -2,11 +2,11 @@ import * as React from "react";
 const { Component } = React;
 import { BrowserRouter, Route } from "react-router-dom";
 
+import CreateEvent from "./components/events/CreateEvent";
 import Landing from "./components/Landing";
 import NavBar from "./components/NavBar";
 
 const Dashboard = () => <div>Dashboard</div>;
-const CreateEvent = () => <div>New Event</div>;
 
 class App extends Component<{}, { selectedView: string }> {
 	render() {
