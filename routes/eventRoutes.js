@@ -6,10 +6,14 @@ module.exports = app => {
 	});
 
 	app.post("/events/new", async (req, res) => {
+		const {
+			body: { createdBy, title, eventType }
+		} = req;
+
 		const event = await Event.create({
-			createdBy: "me",
-			title: "New Title",
-			eventType: "Daily"
+			createdBy: createdBy,
+			title: title,
+			eventType: eventType
 		});
 
 		try {

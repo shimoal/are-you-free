@@ -3,6 +3,8 @@ const app = express();
 const db = require("./db/database.js");
 const bodyParser = require("body-parser");
 
+app.use(bodyParser.json());
+
 require("./routes/eventRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
