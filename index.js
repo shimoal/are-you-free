@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const db = require("./db/database.js");
+const bodyParser = require("body-parser");
 
 require("./routes/eventRoutes")(app);
 
