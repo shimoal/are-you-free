@@ -17,7 +17,7 @@ class EventForm extends Component {
 		console.log("inside submit");
 		console.log("submit", this.state);
 		axios
-			.post("/events/new", {
+			.post("/api/events/new", {
 				createdBy: "Alison",
 				eventType: "once",
 				title: "Haircut"

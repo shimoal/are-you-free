@@ -1,11 +1,11 @@
 const Event = require("../db/models/Event");
 
 module.exports = app => {
-	app.get("/events", (req, res) => {
+	app.get("/api/events", (req, res) => {
 		res.send("Events");
 	});
 
-	app.post("/events/new", async (req, res) => {
+	app.post("/api/events/new", async (req, res) => {
 		const {
 			body: { createdBy, title, eventType }
 		} = req;

@@ -2,6 +2,7 @@
   "name": "are-you-free",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@types/materialize-css": "^1.0.5",
     "@types/node": "^10.12.0",
