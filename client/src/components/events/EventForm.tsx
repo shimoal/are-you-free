@@ -14,13 +14,12 @@ class EventForm extends Component {
 	}
 
 	handleSubmit(event: any) {
-		console.log("inside submit");
-		console.log("submit", this.state);
+		const { createdBy, eventType, title } = this.state;
 		axios
 			.post("/api/events/new", {
-				createdBy: "Alison",
-				eventType: "once",
-				title: "Haircut"
+				createdBy,
+				eventType,
+				title
 			})
 			.then(res => {
 				console.log("res", res);
