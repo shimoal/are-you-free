@@ -2,6 +2,21 @@ import * as React from "react";
 const { Component } = React;
 import axios from "axios";
 
+const FIELDS = [
+	{
+		label: "Title",
+		name: "title"
+	},
+	{
+		label: "Creator (Example: Your name)",
+		name: "createdBy"
+	},
+	{
+		label: "Event Type",
+		name: "eventType"
+	}
+];
+
 class EventForm extends Component {
 	state = {
 		createdBy: "",
@@ -9,7 +24,7 @@ class EventForm extends Component {
 		title: ""
 	};
 
-	handleChange(field: string, event: any) {
+	handleChange(field: string, event: { target: { value: string } }) {
 		this.setState({ [field]: event.target.value });
 	}
 
@@ -34,26 +49,18 @@ class EventForm extends Component {
 		return (
 			<div>
 				<form onSubmit={event => this.handleSubmit(event)}>
-					<label>Title</label>
-					<input
-						type="text"
-						value={this.state.title}
-						onChange={event => this.handleChange("title", event)}
-					/>
-
-					<label>Creator (Example: Your name)</label>
-					<input
-						type="text"
-						value={this.state.createdBy}
-						onChange={event => this.handleChange("createdBy", event)}
-					/>
-
-					<label>Type</label>
-					<input
-						type="text"
-						value={this.state.eventType}
-						onChange={event => this.handleChange("eventType", event)}
-					/>
+					{FIELDS.map(({ label, name }) => {
+						return (
+							<div key={name}>
+								<label>{label}</label>
+								<input
+									type="text"
+									value={this.state[name]}
+									onChange={event => this.handleChange(name, event)}
+								/>
+							</div>
+						);
+					})}
 
 					<input
 						className="btn-large waves-effect waves-light orange"
