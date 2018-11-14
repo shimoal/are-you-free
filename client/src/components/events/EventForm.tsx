@@ -1,5 +1,6 @@
 import * as React from "react";
 const { Component } = React;
+import axios from "axios";
 
 class EventForm extends Component {
 	state = {
@@ -13,14 +14,27 @@ class EventForm extends Component {
 	}
 
 	handleSubmit(event: any) {
+		console.log("inside submit");
 		console.log("submit", this.state);
+		axios
+			.post("/events/new", {
+				createdBy: "Alison",
+				eventType: "once",
+				title: "Haircut"
+			})
+			.then(res => {
+				console.log("res", res);
+			})
+			.catch(err => {
+				console.log("err", err);
+			});
 		event.preventDefault();
 	}
 
 	render() {
 		return (
 			<div>
-				<form onSubmit={() => this.handleSubmit}>
+				<form onSubmit={event => this.handleSubmit(event)}>
 					<label>Title</label>
 					<input
 						type="text"
