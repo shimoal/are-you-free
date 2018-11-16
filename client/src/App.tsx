@@ -3,10 +3,9 @@ const { Component } = React;
 import { BrowserRouter, Route } from "react-router-dom";
 
 import CreateEvent from "./components/events/CreateEvent";
+import EventCreated from "./components/events/EventCreated";
 import Landing from "./components/Landing";
 import NavBar from "./components/NavBar";
-
-const Dashboard = () => <div>Dashboard</div>;
 
 class App extends Component<{}, { selectedView: string }> {
 	render() {
@@ -16,7 +15,7 @@ class App extends Component<{}, { selectedView: string }> {
 					<div>
 						<NavBar />
 						<Route exact path="/" component={Landing} />
-						<Route exact path="/events" component={Dashboard} />
+						<Route exact path="/event" component={EventCreated} />
 						<Route exact path="/events/new" component={CreateEvent} />
 					</div>
 				</BrowserRouter>
