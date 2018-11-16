@@ -10,6 +10,9 @@ const Event = db.define("event", {
 	},
 	eventType: {
 		type: Sequelize.STRING
+	},
+	linkID: {
+		type: Sequelize.STRING
 	}
 });
 

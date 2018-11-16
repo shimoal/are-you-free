@@ -1,4 +1,5 @@
 const Event = require("../db/models/Event");
+const uniqid = require("uniqid");
 
 module.exports = app => {
 	app.get("/api/events", (req, res) => {
@@ -10,10 +11,14 @@ module.exports = app => {
 			body: { createdBy, title, eventType }
 		} = req;
 
+		const linkID = uniqid();
+		console.log("linkID", linkID);
+
 		const event = await Event.create({
 			createdBy: createdBy,
 			title: title,
-			eventType: eventType
+			eventType: eventType,
+			linkID
 		});
 
 		try {
