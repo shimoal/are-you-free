@@ -41,7 +41,7 @@ class EventForm extends Component<{} & RouteComponentProps> {
 				this.props.history.push("/event");
 			})
 			.catch(err => {
-				console.log("err", err);
+				this.props.history.push("/events/error");
 			});
 		event.preventDefault();
 	}
