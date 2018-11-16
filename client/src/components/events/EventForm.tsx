@@ -1,6 +1,7 @@
 import * as React from "react";
 const { Component } = React;
 import axios from "axios";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 
 const FIELDS = [
 	{
@@ -17,7 +18,7 @@ const FIELDS = [
 	}
 ];
 
-class EventForm extends Component {
+class EventForm extends Component<{} & RouteComponentProps> {
 	state = {
 		createdBy: "",
 		eventType: "",
@@ -42,6 +43,7 @@ class EventForm extends Component {
 			.catch(err => {
 				console.log("err", err);
 			});
+		this.props.history.push("/event");
 		event.preventDefault();
 	}
 
@@ -73,4 +75,4 @@ class EventForm extends Component {
 	}
 }
 
-export default EventForm;
+export default withRouter(EventForm);
