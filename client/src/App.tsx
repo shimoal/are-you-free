@@ -17,7 +17,7 @@ class App extends Component<{}, { selectedView: string }> {
 					<div>
 						<NavBar />
 						<Route exact path="/" component={Landing} />
-						<Route exact path="/event" component={EventCreated} />
+						<Route exact path="/events/created/:linkID" component={EventCreated} />
 						<Route path="/event/:linkID" component={Event} />
 						<Route exact path="/events/new" component={CreateEvent} />
 						<Route exact path="/events/error" component={EventError} errorMessage="There was an error creating your event. Please try again" />
