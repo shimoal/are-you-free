@@ -2,9 +2,18 @@ const Event = require("../db/models/Event");
 const uniqid = require("uniqid");
 
 module.exports = app => {
-	app.get("/event/:linkID", (req, res) => {
-		console.log('inside get');
-		res.send("link id is " + req.params.linkID);
+	app.get("/event/:linkID", async (req, res) => {
+		const {linkID} = req.params;
+		try {
+			const event = await Event.findOne({	
+				where: {
+					linkID
+				}
+			});
+			res.send(event);
+		} catch (error) {
+			res.send(error);
+		}
 	});
 
 	app.get("/api/events", (req, res) => {
