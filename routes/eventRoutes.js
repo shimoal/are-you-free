@@ -2,6 +2,11 @@ const Event = require("../db/models/Event");
 const uniqid = require("uniqid");
 
 module.exports = app => {
+	app.get("/event/:linkID", (req, res) => {
+		console.log('inside get');
+		res.send("link id is " + req.params.linkID);
+	});
+
 	app.get("/api/events", (req, res) => {
 		res.send("Events");
 	});

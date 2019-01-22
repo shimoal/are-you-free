@@ -38,7 +38,7 @@ class EventForm extends Component<{} & RouteComponentProps> {
 				title
 			})
 			.then(({ data }) => {
-				this.props.history.push("/event");
+				this.props.history.push("/event/" + data.linkID);
 			})
 			.catch(err => {
 				this.props.history.push("/events/error");
