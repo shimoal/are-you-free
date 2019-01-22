@@ -26,7 +26,6 @@ module.exports = app => {
 		} = req;
 
 		const linkID = uniqid();
-		console.log("linkID", linkID);
 
 		const event = await Event.create({
 			createdBy: createdBy,
