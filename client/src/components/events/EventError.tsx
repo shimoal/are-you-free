@@ -1,10 +1,13 @@
 import * as React from "react";
 
-export default () => {
+interface IProps {
+	errorMessage: string;
+}
+export default (props: IProps) => {
 	return (
 		<div className="container center">
 			<h1 className="red-text">Error</h1>
-			<p>There was an error creating your event. Please try again</p>
+			<p>{props.errorMessage}</p>
 		</div>
 	);
 };
