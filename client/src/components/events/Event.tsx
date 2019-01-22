@@ -34,10 +34,13 @@ class Event extends Component<{} & RouteComponentProps<IMatchParams>> {
 
 	render() {
 		const {createdBy, error, title} = this.state;
+		const {linkID} = this.props.match.params;
 		if (!error) {
 			return <div>
 				<h1>{title}</h1>
 				<h5>Event Created By: {createdBy}</h5>
+				<p>This event can be accessed by sharing this link:<br />
+				{"https://are-you-free.herokuapp.com/event/"+ linkID}</p>
 			</div>;
 		} 
 		return <EventError errorMessage={"There was an error retrieving this event: " + error}/>
