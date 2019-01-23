@@ -1,5 +1,4 @@
 const Event = require("../db/models/Event");
-const Option = require("../db/models/Option")
 const uniqid = require("uniqid");
 
 module.exports = app => {
@@ -23,12 +22,12 @@ module.exports = app => {
 
 	app.post("/api/events/new", async (req, res) => {
 		const {
-			body: { createdBy, title, eventType }
+			body: { createdBy, title, eventType, options }
 		} = req;
 
 		const linkID = uniqid();
 
-
+		const labeledOptions = options.map(option => ({label: option}));
 
 		try {
 			try {
@@ -37,11 +36,7 @@ module.exports = app => {
 				title: title,
 				eventType: eventType,
 				linkID,
-				options: [
-					{
-						label: "Default Option"
-					}
-				]
+				options: labeledOptions
 				}, {
 					include: [ {
 						association: Event.Options
