@@ -1,4 +1,5 @@
 const Event = require("../db/models/Event");
+const Option = require("../db/models/Option")
 const uniqid = require("uniqid");
 
 module.exports = app => {
@@ -27,15 +28,31 @@ module.exports = app => {
 
 		const linkID = uniqid();
 
-		const event = await Event.create({
-			createdBy: createdBy,
-			title: title,
-			eventType: eventType,
-			linkID
-		});
+
 
 		try {
+			try {
+				const event = await Event.create({
+				createdBy: createdBy,
+				title: title,
+				eventType: eventType,
+				linkID,
+				options: [
+					{
+						label: "Default Option"
+					}
+				]
+				}, {
+					include: [ {
+						association: Event.Options
+					} ]
+				});
+			} catch (error) {
+				console.log('error:', error)
+				res.send(error)
+			}
 			const newEvent = await event.save();
+			
 			res.send(newEvent);
 		} catch (error) {
 			res.send(error);

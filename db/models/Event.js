@@ -16,6 +16,15 @@ const Event = db.define("event", {
 	}
 });
 
+const Option = db.define("option", {
+	label: {
+		type: Sequelize.STRING
+	}
+});
+
+Option.Event = Option.belongsTo(Event);
+Event.Options = Event.hasMany(Option);
+
 db.sync();
 
 module.exports = Event;
