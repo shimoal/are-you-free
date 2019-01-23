@@ -1,6 +1,9 @@
 {
   "name": "are-you-free",
   "version": "0.1.0",
+  "engines": {
+    "node": "8.12.0"
+  },
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
@@ -14,14 +17,15 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1",
-    "react-scripts-ts": "^4.0.8",
-    "typescript": "^3.1.6"
+    "react-scripts": "^2.1.3",
+    "typescript": "^3.1.6",
+    "webpack-dev-server": "^3.1.14"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "@types/jest": "^23.3.9"
