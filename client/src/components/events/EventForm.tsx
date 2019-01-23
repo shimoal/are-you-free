@@ -22,11 +22,18 @@ class EventForm extends Component<{} & RouteComponentProps> {
 	state = {
 		createdBy: "",
 		eventType: "",
-		title: ""
+		title: "", 
+		options: ["", "", ""]
 	};
 
 	handleChange(field: string, event: { target: { value: string } }) {
 		this.setState({ [field]: event.target.value });
+	}
+
+	handleOptionsChange(optionIndex: number, event: { target: { value: string} }) {
+		const options = [...this.state.options];
+		options[optionIndex] = event.target.value;
+		this.setState({options});
 	}
 
 	handleSubmit(event: any) {
@@ -50,24 +57,40 @@ class EventForm extends Component<{} & RouteComponentProps> {
 		return (
 			<div>
 				<form onSubmit={event => this.handleSubmit(event)}>
-					{FIELDS.map(({ label, name }) => {
-						return (
-							<div key={name}>
-								<label>{label}</label>
-								<input
-									type="text"
-									value={this.state[name]}
-									onChange={event => this.handleChange(name, event)}
-								/>
-							</div>
-						);
-					})}
+
+					<div className="container">
+						{FIELDS.map(({ label, name }) => {
+							return (
+								<div key={name}>
+									<label>{label}</label>
+									<input
+										type="text"
+										value={this.state[name]}
+										onChange={event => this.handleChange(name, event)}
+									/>
+								</div>
+							);
+						})}
+					</div>
+
+					<div className="container">
+						{this.state.options.map((option, optionIndex) => {
+							return	(<div>
+								<label>Option {optionIndex + 1}</label>
+								<input type="text"
+									value={this.state.options[optionIndex]}
+									onChange={event => this.handleOptionsChange(optionIndex, event)}
+									/>
+							</div>);
+						})}
+					</div>
 
 					<input
 						className="btn-large waves-effect waves-light orange"
 						type="submit"
 						value="Create"
 					/>
+					
 				</form>
 			</div>
 		);
