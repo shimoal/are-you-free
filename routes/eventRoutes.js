@@ -30,22 +30,18 @@ module.exports = app => {
 		const labeledOptions = options.map(option => ({label: option}));
 
 		try {
-			try {
-				const event = await Event.create({
-				createdBy: createdBy,
-				title: title,
-				eventType: eventType,
-				linkID,
-				options: labeledOptions
-				}, {
-					include: [ {
-						association: Event.Options
-					} ]
-				});
-			} catch (error) {
-				console.log('error:', error)
-				res.send(error)
-			}
+			const event = await Event.create({
+			createdBy: createdBy,
+			title: title,
+			eventType: eventType,
+			linkID,
+			options: labeledOptions
+			}, {
+				include: [ {
+					association: Event.Options
+				} ]
+			});
+
 			const newEvent = await event.save();
 			
 			res.send(newEvent);
