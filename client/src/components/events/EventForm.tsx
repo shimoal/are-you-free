@@ -37,12 +37,13 @@ class EventForm extends Component<{} & RouteComponentProps> {
 	}
 
 	handleSubmit(event: any) {
-		const { createdBy, eventType, title } = this.state;
+		const { createdBy, eventType, title, options } = this.state;
 		axios
 			.post("/api/events/new", {
 				createdBy,
 				eventType,
-				title
+				title,
+				options
 			})
 			.then(({ data }) => {
 				this.props.history.push("/events/created/" + data.linkID);
@@ -90,7 +91,7 @@ class EventForm extends Component<{} & RouteComponentProps> {
 						type="submit"
 						value="Create"
 					/>
-					
+
 				</form>
 			</div>
 		);
