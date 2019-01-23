@@ -1,15 +1,16 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 export default () => {
 	return (
 		<nav className="light-blue lighten-1">
 			<div className="nav-wrapper container">
-				<a id="logo-container" className="brand-logo" href="#">
-					Logo
-				</a>
+				<Link id="logo-container" className="brand-logo" to="/">
+					Home (Logo)
+				</Link>
 				<ul className="right hide-on-med-and-down">
 					<li>
-						<a href="#">Navbar Link</a>
+						<Link to="/">Navbar Link</Link>
 					</li>
 				</ul>
 				<ul
