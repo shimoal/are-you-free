@@ -76,7 +76,7 @@ class EventForm extends Component<{} & RouteComponentProps> {
 
 					<div className="container">
 						{this.state.options.map((option, optionIndex) => {
-							return	(<div>
+							return	(<div key={"options-"+optionIndex}>
 								<label>Option {optionIndex + 1}</label>
 								<input type="text"
 									value={this.state.options[optionIndex]}

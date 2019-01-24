@@ -52,7 +52,7 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 
 					<div className="container">
 						{this.state.options.map((option, optionIndex) => {
-							return	(<div>
+							return	(<div key={"response-options-"+optionIndex}>
 								<label>Option {optionIndex + 1}</label>
 								<input type="text"
 									value={this.state.options[optionIndex]}
