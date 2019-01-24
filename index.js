@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 require("./routes/eventRoutes")(app);
+require("./routes/responseRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
 	// serve production assests
