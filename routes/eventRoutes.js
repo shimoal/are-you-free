@@ -1,4 +1,4 @@
-const Event = require("../db/models/Event");
+const {Event} = require("../db/models/Models");
 const uniqid = require("uniqid");
 
 module.exports = app => {

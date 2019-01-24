@@ -27,4 +27,4 @@ Event.Options = Event.hasMany(Option);
 
 db.sync();
 
-module.exports = Event;
+module.exports = {Event, Option};
