@@ -1,4 +1,5 @@
 import * as React from "react";
+import ResponseForm from '../responses/ResponseForm';
 
 interface IProps {
 	createdBy: string;
@@ -13,6 +14,7 @@ const Event = (props: IProps) => {
 		<h5>Event Created By: {createdBy}</h5>
 		<p>This event can be accessed by sharing this link:<br />
 		{"https://are-you-free.herokuapp.com/event/"+ linkID}</p>
+		<ResponseForm />
 	</div>;
 }
 
