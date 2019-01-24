@@ -28,11 +28,20 @@ const Response = db.define("response", {
 	}
 });
 
+const ResponseOption = db.define("response_option", {
+	choice: {
+		type: Sequelize.STRING
+	}
+});
+
 Option.Event = Option.belongsTo(Event);
 Event.Options = Event.hasMany(Option);
 
 Response.Event = Response.belongsTo(Event);
 Event.Responses = Event.hasMany(Response);
+
+Response.belongsToMany(Option, {through: ResponseOption});
+Option.belongsToMany(Response, {through: ResponseOption});
 
 db.sync();
 
