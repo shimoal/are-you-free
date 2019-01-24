@@ -5,16 +5,17 @@ interface IProps {
 	createdBy: string;
 	title: string;
 	linkID: string;
+	eventId: number | null;
 }
 
 const Event = (props: IProps) => {
-	const {createdBy, linkID, title} = props;
+	const {createdBy, linkID, title, eventId} = props;
 	return <div>
 		<h1>{title}</h1>
 		<h5>Event Created By: {createdBy}</h5>
 		<p>This event can be accessed by sharing this link:<br />
 		{"https://are-you-free.herokuapp.com/event/"+ linkID}</p>
-		<ResponseForm />
+		<ResponseForm eventId={eventId}/>
 	</div>;
 }
 

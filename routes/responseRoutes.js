@@ -1,8 +1,8 @@
 const {Event, Response} = require("../db/models/Models");
 
 module.exports = app => {
-	app.post("/api/event/:linkID", async (req, res) => {
-		const { body: { name, eventId }} = req;
+	app.post("/api/response", async (req, res) => {
+		const { body: { name, eventId, options }} = req;
 
 		try {
 			const response = await Response.create({
@@ -14,7 +14,6 @@ module.exports = app => {
 			
 			res.send(newResponse);
 		} catch (error) {
-			console.log('ERROR:', error);
 			res.send(error);
 		}
 	})
