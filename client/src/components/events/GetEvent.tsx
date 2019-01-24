@@ -25,7 +25,6 @@ class GetEvent extends Component<{} & RouteComponentProps<IMatchParams>> {
 			if (!data) {
 				this.setState({error: "This event does not exist"});
 			} else {
-				console.log('DATA:', data);
 				const {title, createdBy, id} = data;
 				this.setState({title, createdBy, id});
 			}
@@ -38,7 +37,7 @@ class GetEvent extends Component<{} & RouteComponentProps<IMatchParams>> {
 	render() {
 		const {createdBy, error, title, id} = this.state;
 		const {linkID} = this.props.match.params;
-		if (!error) {
+		if (!error && id) {
 			return <Event createdBy={createdBy} title={title} linkID={linkID} eventId={id} />;
 		} 
 		return <EventError errorMessage={"There was an error retrieving this event: " + error}/>

@@ -4,7 +4,8 @@ import axios from "axios";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
 interface IProps {
-	eventId: number | null
+	linkID: string,
+	eventId: number
 }
 
 class EventForm extends Component<IProps & RouteComponentProps> {
@@ -21,7 +22,7 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 
 	handleSubmit(event: any) {
 		const { name, options } = this.state;
-		const { eventId } = this.props;
+		const { eventId, linkID } = this.props;
 		axios
 			.post("/api/response", {
 				name,
@@ -29,7 +30,7 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 				eventId
 			})
 			.then(({ data }) => {
-				this.props.history.push("/events" + data.linkID);
+				this.props.history.push("/event/" + linkID);
 			})
 			.catch(err => {
 				this.props.history.push("/events/error");
