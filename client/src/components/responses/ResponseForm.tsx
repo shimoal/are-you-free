@@ -10,10 +10,16 @@ interface IProps {
 	linkID: string,
 }
 
+const OPTION_CHOICES = {
+	yes: 'Yes',
+	no: 'No',
+	maybe: 'Maybe'
+};
+
 class EventForm extends Component<IProps & RouteComponentProps> {
 	state = {
 		name: "",
-		options: this.props.event.options.map(option => ({...option, choice: ""}))
+		options: this.props.event.options.map(option => ({...option, choice: OPTION_CHOICES.no}))
 	};
 
 	handleOptionsChange(optionIndex: number, e: { target: { value: string} }) {
@@ -56,10 +62,16 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 						{options.map((option, optionIndex) => {
 							return	(<div key={"response-options-"+optionIndex}>
 								<label>{option.label}</label>
-								<input type="text"
-									value={options[optionIndex].choice}
-									onChange={event => this.handleOptionsChange(optionIndex, event)}
-									/>
+									<select 
+										className="browser-default" 
+										value={options[optionIndex].choice} 
+										name={option.label} 
+										onChange={event => this.handleOptionsChange(optionIndex, event)}
+										size={3}>
+										{Object.keys(OPTION_CHOICES).map(choice => {
+											return 	<option key={choice} value={choice}>{OPTION_CHOICES[choice]}</option>;
+										})}
+									</select>
 							</div>);
 						})}
 					</div>
