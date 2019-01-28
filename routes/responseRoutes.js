@@ -1,4 +1,4 @@
-const {Event, Response} = require("../db/models/Models");
+const {Event, Response, ResponseOption} = require("../db/models/Models");
 
 module.exports = app => {
 	app.get("/api/responses/:eventId", async (req, res) => {
@@ -19,6 +19,12 @@ module.exports = app => {
 	app.post("/api/response", async (req, res) => {
 		const { body: { name, eventId, options }} = req;
 
+		const feOptions = options.map((option, i) => {
+			return {
+				choice: option,
+				index: i + 1
+			};
+		});
 		try {
 			const response = await Response.create({
 				name,
@@ -26,6 +32,16 @@ module.exports = app => {
 			});
 
 			const newResponse = await response.save();
+
+			for (option of feOptions) {
+				let response_option = await ResponseOption.create({
+					optionId: option.index,
+					responseId: response.dataValues.id,
+					choice: option.choice
+
+				});
+				await response_option.save();
+			}
 			
 			res.send(newResponse);
 		} catch (error) {

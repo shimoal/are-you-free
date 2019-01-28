@@ -45,4 +45,4 @@ Option.belongsToMany(Response, {through: ResponseOption});
 
 db.sync();
 
-module.exports = {Event, Option, Response};
+module.exports = {Event, Option, Response, ResponseOption};
