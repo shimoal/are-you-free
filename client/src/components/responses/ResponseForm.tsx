@@ -3,31 +3,34 @@ const { Component } = React;
 import axios from "axios";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
+import IEvent from '../../interfaces/IEvent';
+
 interface IProps {
+	event: IEvent,
 	linkID: string,
-	eventId: number
 }
+
 
 class EventForm extends Component<IProps & RouteComponentProps> {
 	state = {
 		name: "",
-		options: ["", "", ""]
+		options: this.props.event.options.map(option => ({...option, choice: ""}))
 	};
 
 	handleOptionsChange(optionIndex: number, event: { target: { value: string} }) {
 		const options = [...this.state.options];
-		options[optionIndex] = event.target.value;
+		options[optionIndex].choice = event.target.value;
 		this.setState({options});
 	}
 
 	handleSubmit(event: any) {
 		const { name, options } = this.state;
-		const { eventId, linkID } = this.props;
+		const { event: {id}, linkID } = this.props;
 		axios
 			.post("/api/response", {
 				name,
 				options,
-				eventId
+				eventId: id
 			})
 			.then(({ data }) => {
 				this.props.history.push("/event/" + linkID);
@@ -53,9 +56,9 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 					<div className="container">
 						{this.state.options.map((option, optionIndex) => {
 							return	(<div key={"response-options-"+optionIndex}>
-								<label>Option {optionIndex + 1}</label>
+								<label>{option.label}</label>
 								<input type="text"
-									value={this.state.options[optionIndex]}
+									value={this.state.options[optionIndex].choice}
 									onChange={event => this.handleOptionsChange(optionIndex, event)}
 									/>
 							</div>);
