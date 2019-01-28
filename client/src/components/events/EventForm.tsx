@@ -8,15 +8,18 @@ import SubmitButton from '../UI/SubmitButton';
 const FIELDS = [
 	{
 		label: "Title",
-		name: "title"
+		name: "title",
+		placeholder: "My Event"
 	},
 	{
 		label: "Creator (Example: Your name)",
-		name: "createdBy"
+		name: "createdBy",
+		placeholder: "John Smith"
 	},
 	{
 		label: "Event Type",
-		name: "eventType"
+		name: "eventType",
+		placeholder: "Weekly"
 	}
 ];
 
@@ -58,35 +61,43 @@ class EventForm extends Component<{} & RouteComponentProps> {
 
 	render() {
 		return (
-			<div>
-				<form onSubmit={event => this.handleSubmit(event)}>
+			<div className="row">
+				<form className="col s12" onSubmit={event => this.handleSubmit(event)}>
 
-					<div className="container">
-						{FIELDS.map(({ label, name }) => {
+						{FIELDS.map(({ label, name, placeholder }) => {
 							return (
-								<div key={name}>
-									<label>{label}</label>
-									<input
-										type="text"
-										value={this.state[name]}
-										onChange={event => this.handleChange(name, event)}
-									/>
+								<div key={name} className="row">
+									<div className="input-field col s12">
+										<input
+											id={name}
+											onChange={event => this.handleChange(name, event)}
+											placeholder={placeholder}
+											type="text"
+											value={this.state[name]}
+										/>
+										<label className="active" htmlFor={name}>{label}</label>
+										</div>
 								</div>
 							);
 						})}
-					</div>
 
-					<div className="container">
 						{this.state.options.map((option, optionIndex) => {
-							return	(<div key={"options-"+optionIndex}>
-								<label>Option {optionIndex + 1}</label>
-								<input type="text"
-									value={this.state.options[optionIndex]}
-									onChange={event => this.handleOptionsChange(optionIndex, event)}
-									/>
-							</div>);
+							return (
+								<div key={"options-"+optionIndex} className="row">
+									<div className="input-field col s12">
+										<input 
+											id={`options-${optionIndex}`}
+											onChange={event => this.handleOptionsChange(optionIndex, event)}
+											type="text"
+											value={this.state.options[optionIndex]}
+										/>
+										<label className="active" htmlFor={`options-${optionIndex}`}>
+											Option {optionIndex + 1}
+										</label>
+									</div>
+								</div>
+							);
 						})}
-					</div>
 
 					<SubmitButton value="Create" />
 

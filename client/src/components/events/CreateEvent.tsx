@@ -7,9 +7,7 @@ export default class CreateEvent extends Component {
 		return (
 			<div className="center">
 				<h2>Create a new Event</h2>
-				<div className="row center">
 					<EventForm />
-				</div>
 			</div>
 		);
 	}
