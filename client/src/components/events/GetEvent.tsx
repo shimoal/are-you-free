@@ -14,12 +14,7 @@ interface IMatchParams {
 
 class GetEvent extends Component<{} & RouteComponentProps<IMatchParams>> {
 	state = {
-		event: {
-			id: null,
-			createdBy: "",
-			title: "",
-			options: []
-		},
+		event: null,
 		error: ""
 
 	};
@@ -42,10 +37,10 @@ class GetEvent extends Component<{} & RouteComponentProps<IMatchParams>> {
 	}
 
 	render() {
-		const {error, event: {createdBy, title, id}} = this.state;
+		const {error, event} = this.state;
 		const {linkID} = this.props.match.params;
-		if (!error && id) {
-			return <Event createdBy={createdBy} title={title} linkID={linkID} eventId={id} />;
+		if (!error && event) {
+			return <Event event={event} linkID={linkID} />;
 		} 
 		return <EventError errorMessage={"There was an error retrieving this event: " + error}/>
 
