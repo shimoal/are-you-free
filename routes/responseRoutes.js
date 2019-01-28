@@ -1,4 +1,4 @@
-const {Event, Response, ResponseOption} = require("../db/models/Models");
+const {Event, Option, Response, ResponseOption} = require("../db/models/Models");
 
 module.exports = app => {
 	app.get("/api/responses/:eventId", async (req, res) => {
@@ -8,7 +8,8 @@ module.exports = app => {
 			const responses = await Response.findAll({
 				where: {
 					eventId
-				}
+				},
+				include: [Option]
 			});
 			res.send(responses);
 		} catch (error) {
@@ -18,7 +19,7 @@ module.exports = app => {
 
 	app.post("/api/response", async (req, res) => {
 		const { body: { name, eventId, options }} = req;
-		
+
 		try {
 			const response = await Response.create({
 				name,
