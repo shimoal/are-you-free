@@ -18,13 +18,7 @@ module.exports = app => {
 
 	app.post("/api/response", async (req, res) => {
 		const { body: { name, eventId, options }} = req;
-
-		const feOptions = options.map((option, i) => {
-			return {
-				choice: option,
-				index: i + 1
-			};
-		});
+		
 		try {
 			const response = await Response.create({
 				name,
@@ -33,9 +27,9 @@ module.exports = app => {
 
 			const newResponse = await response.save();
 
-			for (option of feOptions) {
+			for (option of options) {
 				let response_option = await ResponseOption.create({
-					optionId: option.index,
+					optionId: option.id,
 					responseId: response.dataValues.id,
 					choice: option.choice
 
