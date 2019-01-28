@@ -10,22 +10,21 @@ interface IProps {
 	linkID: string,
 }
 
-
 class EventForm extends Component<IProps & RouteComponentProps> {
 	state = {
 		name: "",
 		options: this.props.event.options.map(option => ({...option, choice: ""}))
 	};
 
-	handleOptionsChange(optionIndex: number, event: { target: { value: string} }) {
+	handleOptionsChange(optionIndex: number, e: { target: { value: string} }) {
 		const options = [...this.state.options];
-		options[optionIndex].choice = event.target.value;
+		options[optionIndex].choice = e.target.value;
 		this.setState({options});
 	}
 
-	handleSubmit(event: any) {
+	handleSubmit(e: any) {
 		const { name, options } = this.state;
-		const { event: {id}, linkID } = this.props;
+		const { event: {id}, history, linkID } = this.props;
 		axios
 			.post("/api/response", {
 				name,
@@ -33,15 +32,16 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 				eventId: id
 			})
 			.then(({ data }) => {
-				this.props.history.push("/event/" + linkID);
+				history.push("/event/" + linkID);
 			})
 			.catch(err => {
-				this.props.history.push("/events/error");
+				history.push("/events/error");
 			});
-		event.preventDefault();
+		e.preventDefault();
 	}
 
 	render() {
+		const {name, options} = this.state;
 		return (
 			<div>
 				<form onSubmit={event => this.handleSubmit(event)}>
@@ -49,16 +49,16 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 					<div className="container">
 						<label>Name</label>
 						<input type="text"
-							value={this.state.name}
+							value={name}
 							onChange={event => this.setState({name: event.target.value})}/>
 					</div>
 
 					<div className="container">
-						{this.state.options.map((option, optionIndex) => {
+						{options.map((option, optionIndex) => {
 							return	(<div key={"response-options-"+optionIndex}>
 								<label>{option.label}</label>
 								<input type="text"
-									value={this.state.options[optionIndex].choice}
+									value={options[optionIndex].choice}
 									onChange={event => this.handleOptionsChange(optionIndex, event)}
 									/>
 							</div>);
