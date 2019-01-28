@@ -37,7 +37,6 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 			.catch(err => {
 				history.push("/events/error");
 			});
-		e.preventDefault();
 	}
 
 	render() {
