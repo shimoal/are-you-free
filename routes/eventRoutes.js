@@ -1,4 +1,4 @@
-const {Event} = require("../db/models/Models");
+const {Event, Option} = require("../db/models/Models");
 const uniqid = require("uniqid");
 
 module.exports = app => {
@@ -8,7 +8,8 @@ module.exports = app => {
 			const event = await Event.findOne({	
 				where: {
 					linkID
-				}
+				},
+				include: [Option]
 			});
 			res.send(event);
 		} catch (error) {
