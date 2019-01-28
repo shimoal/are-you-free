@@ -3,6 +3,8 @@ const { Component } = React;
 import axios from "axios";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
+import SubmitButton from '../UI/SubmitButton';
+
 const FIELDS = [
 	{
 		label: "Title",
@@ -86,11 +88,7 @@ class EventForm extends Component<{} & RouteComponentProps> {
 						})}
 					</div>
 
-					<input
-						className="btn-large waves-effect waves-light orange"
-						type="submit"
-						value="Create"
-					/>
+					<SubmitButton value="Create" />
 
 				</form>
 			</div>

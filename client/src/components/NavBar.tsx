@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default () => {
 	return (
-		<nav className="light-blue lighten-1">
+		<nav className="teal lighten-1">
 			<div className="nav-wrapper container">
 				<Link id="logo-container" className="brand-logo" to="/">
 					Home (Logo)
