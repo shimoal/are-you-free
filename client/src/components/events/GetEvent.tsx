@@ -6,27 +6,34 @@ import { RouteComponentProps } from "react-router-dom";
 import Event from './Event';
 import EventError from './EventError';
 
+import IEvent from '../../interfaces/IEvent';
+
 interface IMatchParams {
   linkID: string
 }
 
 class GetEvent extends Component<{} & RouteComponentProps<IMatchParams>> {
 	state = {
-		createdBy: "",
-		error: "",
-		title: "",
-		id: null
+		event: {
+			id: null,
+			createdBy: "",
+			title: "",
+			options: []
+		},
+		error: ""
+
 	};
 
 	componentDidMount() {
 		const {linkID} = this.props.match.params;
+
 		axios.get('/event/' + linkID)
-		.then(({data}) => {
-			if (!data) {
+		.then((response: {data: IEvent}) => {
+			const {data: event} = response;
+			if (!event) {
 				this.setState({error: "This event does not exist"});
 			} else {
-				const {title, createdBy, id} = data;
-				this.setState({title, createdBy, id});
+				this.setState({event});
 			}
 		})
 		.catch((error) => {
@@ -35,7 +42,7 @@ class GetEvent extends Component<{} & RouteComponentProps<IMatchParams>> {
 	}
 
 	render() {
-		const {createdBy, error, title, id} = this.state;
+		const {error, event: {createdBy, title, id}} = this.state;
 		const {linkID} = this.props.match.params;
 		if (!error && id) {
 			return <Event createdBy={createdBy} title={title} linkID={linkID} eventId={id} />;
