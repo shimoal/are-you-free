@@ -23,13 +23,29 @@ const FIELDS = [
 	}
 ];
 
+interface IState {
+	createdBy: string;
+	eventType: string;
+	title: string; 
+	options: Array<string>;
+}
+
 class EventForm extends Component<{} & RouteComponentProps> {
 	state = {
 		createdBy: "",
 		eventType: "",
 		title: "", 
-		options: ["", "", ""]
+		options: [""]
 	};
+
+	addOption(event: any) {
+		this.setState((prevState: IState) => {
+			const options = [...prevState.options];
+			options.push("");
+			return {...prevState, options};
+		});
+		event.preventDefault();
+	}
 
 	handleChange(field: string, event: { target: { value: string } }) {
 		this.setState({ [field]: event.target.value });
@@ -98,6 +114,8 @@ class EventForm extends Component<{} & RouteComponentProps> {
 								</div>
 							);
 						})}
+
+					<button onClick={(event) => this.addOption(event)}>Add Option</button>
 
 					<SubmitButton value="Create" />
 
