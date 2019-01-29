@@ -47,6 +47,13 @@ class EventForm extends Component<{} & RouteComponentProps> {
 		event.preventDefault();
 	}
 
+	removeOption(optionIndex: number, event: any) {
+		const options = [...this.state.options];
+		options.splice(optionIndex, 1);
+		this.setState({options});
+		event.preventDefault();
+	}
+
 	handleChange(field: string, event: { target: { value: string } }) {
 		this.setState({ [field]: event.target.value });
 	}
@@ -101,6 +108,11 @@ class EventForm extends Component<{} & RouteComponentProps> {
 							return (
 								<div key={"options-"+optionIndex} className="row">
 									<div className="input-field col s12">
+										<div className="right" onClick={(event) => {this.removeOption(optionIndex, event);}}>
+										  <a className="btn red">
+    										<i className="large material-icons">cancel</i>
+  										</a>
+  									</div>
 										<input 
 											id={`options-${optionIndex}`}
 											onChange={event => this.handleOptionsChange(optionIndex, event)}
