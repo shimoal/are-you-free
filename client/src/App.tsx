@@ -12,15 +12,17 @@ import NavBar from "./components/NavBar";
 class App extends Component<{}, { selectedView: string }> {
 	render() {
 		return (
-			<div className="container">
+			<div>
 				<BrowserRouter>
 					<div>
 						<NavBar />
-						<Route exact path="/" component={Landing} />
-						<Route exact path="/events/created/:linkID" component={EventCreated} />
-						<Route path="/event/:linkID" component={GetEvent} />
-						<Route exact path="/events/new" component={CreateEvent} />
-						<Route exact path="/events/error" component={EventError} errorMessage="There was an error creating your event. Please try again" />
+						<div className="container">
+							<Route exact path="/" component={Landing} />
+							<Route exact path="/events/created/:linkID" component={EventCreated} />
+							<Route path="/event/:linkID" component={GetEvent} />
+							<Route exact path="/events/new" component={CreateEvent} />
+							<Route exact path="/events/error" component={EventError} errorMessage="There was an error creating your event. Please try again" />
+						</div>
 					</div>
 				</BrowserRouter>
 			</div>
