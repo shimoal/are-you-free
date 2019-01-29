@@ -3,6 +3,7 @@ const { Component } = React;
 import axios from "axios";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
+import OptionsCreator from './OptionsCreator';
 import SubmitButton from '../UI/SubmitButton';
 
 const FIELDS = [
@@ -103,6 +104,8 @@ class EventForm extends Component<{} & RouteComponentProps> {
 								</div>
 							);
 						})}
+
+						<OptionsCreator />
 
 						{this.state.options.map((option, optionIndex) => {
 							return (
