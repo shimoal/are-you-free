@@ -8,8 +8,7 @@ import SubmitButton from '../UI/SubmitButton';
 import IEvent from '../../interfaces/IEvent';
 
 interface IProps {
-	event: IEvent,
-	linkID: string,
+	event: IEvent
 }
 
 const OPTION_CHOICES = {
@@ -32,7 +31,7 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 
 	handleSubmit(e: any) {
 		const { name, options } = this.state;
-		const { event: {id}, history, linkID } = this.props;
+		const { event: {id, linkID}, history } = this.props;
 		axios
 			.post("/api/response", {
 				name,

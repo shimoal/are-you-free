@@ -7,18 +7,17 @@ import IEvent from '../../interfaces/IEvent';
 
 interface IProps {
 	event: IEvent;
-	linkID: string;
 }
 
 const Event = (props: IProps) => {
-	const {linkID, event, event: {createdBy, title, id}}= props;
+	const {event, event: {createdBy, title, linkID}}= props;
 	return <div>
 		<h1>{title}</h1>
 		<h5>Event Created By: {createdBy}</h5>
 		<p>This event can be accessed by sharing this link:<br />
 		{"https://are-you-free.herokuapp.com/event/"+ linkID}</p>
-			<ResponseResults event={event} eventId={id}/>
-			<ResponseForm event={event} linkID={linkID}/>
+			<ResponseResults event={event}/>
+			<ResponseForm event={event}/>
 	</div>;
 }
 

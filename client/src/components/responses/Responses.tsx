@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import IOption from '../../interfaces/IOption';
+import IEvent from '../../interfaces/IEvent';
 
 interface IResponse_Options {
 	response_option: {
@@ -14,7 +14,7 @@ interface IResponse {
 }
 
 interface IProps {
-	options: Array<IOption>;
+	event: IEvent;
 	responses: Array<IResponse>
 }
 
@@ -28,7 +28,7 @@ export default (props: IProps) => {
 							<th>
 								Name
 							</th>
-							{props.options.map((option, i) => {
+							{props.event.options.map((option, i) => {
 								return <th key={`option-label-${i}`}>
 									{option.label}
 								</th>
@@ -47,6 +47,14 @@ export default (props: IProps) => {
 						})}
 					</tbody>
 				</table>
+				<div className="row center">
+					<a
+						href={`/events/responses/${props.event.linkID}/new`}
+						className="btn-large amber darken-2"
+					>
+					Add a Response
+				</a>
+			</div>
 			</div>
 	);
 }

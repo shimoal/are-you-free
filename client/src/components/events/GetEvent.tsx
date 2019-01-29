@@ -39,12 +39,11 @@ class GetEvent extends Component<{} & RouteComponentProps<IMatchParams>> {
 
 	render() {
 		const {error, event} = this.state;
-		const {linkID} = this.props.match.params;
 		if (error) {
 			return <EventError errorMessage={"There was an error retrieving this event: " + error}/>		
 		}
 		if (event) {
-			return <Event event={event} linkID={linkID} />;
+			return <Event event={event} />;
 		} 
 		return <Loading />
 

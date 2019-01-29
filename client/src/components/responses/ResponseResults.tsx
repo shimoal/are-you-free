@@ -8,7 +8,6 @@ import Responses from './Responses';
 
 interface IProps {
 	event: IEvent;
-	eventId: number
 }
 
 class ResponseResults extends Component<IProps> {
@@ -17,8 +16,8 @@ class ResponseResults extends Component<IProps> {
 	};
 
 	componentDidMount() {
-		const {eventId} = this.props;
-		axios.get('/api/responses/' + eventId)
+		const {id} = this.props.event;
+		axios.get('/api/responses/' + id)
 			.then(({data}) => {
 				this.setState({responses: data});
 			})
@@ -29,7 +28,7 @@ class ResponseResults extends Component<IProps> {
 	
 	render() {
 		if (this.state.responses.length) {
-			return 	<Responses responses={this.state.responses} options={this.props.event.options} />;
+			return 	<Responses responses={this.state.responses} event={this.props.event} />;
 		}
 		return <p>No Responses</p>;
 
