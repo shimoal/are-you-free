@@ -77,7 +77,7 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 												return 	<option key={choice} value={OPTION_CHOICES[choice]}>{OPTION_CHOICES[choice]}</option>;
 											})}
 										</select>
-										<label htmlFor={option.label}>{option.label}</label>
+										<label className="active" htmlFor={option.label}>{option.label}</label>
 									</div>
 								</div>
 							);

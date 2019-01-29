@@ -5,5 +5,5 @@ interface IProps {
 }
 
 export default (props: IProps) => {
-	return <button onClick={props.onClick}>Cancel</button>
+	return <button className="btn-large blue-grey lighten-2" onClick={props.onClick}>Cancel</button>
 }
