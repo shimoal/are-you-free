@@ -4,20 +4,11 @@ import axios from 'axios';
 
 import IEvent from '../../interfaces/IEvent';
 
+import Responses from './Responses';
+
 interface IProps {
 	event: IEvent;
 	eventId: number
-}
-
-interface IResponse_Options {
-	response_option: {
-		choice: string
-	}
-}
-
-interface IResponse {
-	name: string,
-	options: Array<IResponse_Options>
 }
 
 class ResponseResults extends Component<IProps> {
@@ -37,34 +28,14 @@ class ResponseResults extends Component<IProps> {
 	}
 	
 	render() {
-		return <div>
-			<h2>Results</h2>
-			<table>
-				<thead>
-					<tr>
-						<th>
-							Name
-						</th>
-						{this.props.event.options.map((option, i) => {
-							return <th key={`option-label-${i}`}>
-								{option.label}
-							</th>
-						})}
-					</tr>
-				</thead>
-				<tbody>
-					{this.state.responses.map((response: IResponse, i) => {
-						return (
-							<tr key={`response-${i}`}>
-								<td>{response.name}</td>
-								{response.options.map((option, i) => {
-									return <td key={`response-option-${i}`} >{option.response_option.choice}</td>
-								})}
-							</tr>);
-					})}
-				</tbody>
-			</table>
-		</div>;
+		if (this.state.responses.length) {
+			return 	<div>
+				<h2>Results</h2>
+				<Responses responses={this.state.responses} options={this.props.event.options} />
+			</div>;
+		}
+		return <p>No Responses</p>;
+
 	}
 }
 
