@@ -3,11 +3,18 @@ const {Component} = React;
 
 import Calendar from '../Calendar';
 
-class OptionsCreator extends Component {
+interface IProps {
+	handleOptionsChange: (optionIndex: number, event: any) => void;
+	options: Array<string>;
+	removeOption: (optionIndex: number, event: any) => void;
+}
+
+class OptionsCreator extends Component<IProps> {
 	render() {
+		const {handleOptionsChange, options, removeOption} = this.props;
 		return <div>
 			Options
-			<Calendar />
+			<Calendar options={options} handleOptionsChange={handleOptionsChange} removeOption={removeOption}/>
 		</div>
 	}
 
