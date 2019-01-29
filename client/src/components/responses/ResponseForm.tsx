@@ -54,14 +54,13 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 			<div>
 				<form onSubmit={event => this.handleSubmit(event)}>
 
-					<div className="container">
+
 						<label>Name</label>
 						<input type="text"
 							value={name}
 							onChange={event => this.setState({name: event.target.value})}/>
-					</div>
 
-					<div className="container">
+
 						{options.map((option, optionIndex) => {
 							return	(<div key={"response-options-"+optionIndex}>
 								<label>{option.label}</label>
@@ -77,7 +76,6 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 									</select>
 							</div>);
 						})}
-					</div>
 
 					<CancelButton onClick={this.props.cancelResponse}/>
 					<SubmitButton value="Create" />

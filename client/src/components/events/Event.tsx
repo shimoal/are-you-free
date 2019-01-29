@@ -39,8 +39,8 @@ class Event extends Component< IProps>  {
 			<h5>Event Created By: {createdBy}</h5>
 			<p>This event can be accessed by sharing this link:<br />
 			{"https://are-you-free.herokuapp.com/event/"+ linkID}</p>
-				<ResponseResults event={event}/>
 				{this.renderForm()}
+				<ResponseResults event={event}/>
 		</div>;
 		
 	}
