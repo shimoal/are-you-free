@@ -51,34 +51,46 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 	render() {
 		const {name, options} = this.state;
 		return (
-			<div>
-				<form onSubmit={event => this.handleSubmit(event)}>
-
-
-						<label>Name</label>
-						<input type="text"
-							value={name}
-							onChange={event => this.setState({name: event.target.value})}/>
+			<div className="row">
+				<form className="col s12" onSubmit={event => this.handleSubmit(event)}>
+						<div className="row">
+							<input 
+								id="name"
+								type="text"
+								value={name}
+								onChange={event => this.setState({name: event.target.value})}/>
+							<label className="active" htmlFor="name">Name</label>
+						</div>
 
 
 						{options.map((option, optionIndex) => {
-							return	(<div key={"response-options-"+optionIndex}>
-								<label>{option.label}</label>
-									<select 
-										className="browser-default" 
-										value={options[optionIndex].choice} 
-										name={option.label} 
-										onChange={event => this.handleOptionsChange(optionIndex, event)}
-										size={3}>
-										{Object.keys(OPTION_CHOICES).map(choice => {
-											return 	<option key={choice} value={OPTION_CHOICES[choice]}>{OPTION_CHOICES[choice]}</option>;
-										})}
-									</select>
-							</div>);
+							return	(
+								<div key={"response-options-"+optionIndex} className="row">
+									<div className="input-field col s12">
+										<select 
+											className="browser-default" 
+											value={options[optionIndex].choice} 
+											name={option.label} 
+											onChange={event => this.handleOptionsChange(optionIndex, event)}
+											size={3}>
+											{Object.keys(OPTION_CHOICES).map(choice => {
+												return 	<option key={choice} value={OPTION_CHOICES[choice]}>{OPTION_CHOICES[choice]}</option>;
+											})}
+										</select>
+										<label htmlFor={option.label}>{option.label}</label>
+									</div>
+								</div>
+							);
 						})}
 
-					<CancelButton onClick={this.props.cancelResponse}/>
-					<SubmitButton value="Create" />
+					<div className="row center">
+						<div className="col s6">
+							<CancelButton onClick={this.props.cancelResponse}/>
+						</div>
+						<div className="col s6">
+							<SubmitButton value="Create" />
+						</div>
+					</div>
 
 				</form>
 			</div>
