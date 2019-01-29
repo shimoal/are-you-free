@@ -127,9 +127,19 @@ class EventForm extends Component<{} & RouteComponentProps> {
 							);
 						})}
 
-					<button onClick={(event) => this.addOption(event)}>Add Option</button>
+					<div className="row right">
+						<div className="col s12 right">
+						<button className="btn" onClick={(event) => this.addOption(event)}>
+							Add Option
+						</button>
+						</div>
+					</div>
 
-					<SubmitButton value="Create" />
+					<div className="row">
+						<div className="col s12">
+							<SubmitButton value="Create" />
+						</div>
+					</div>
 
 				</form>
 			</div>
