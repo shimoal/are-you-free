@@ -35,11 +35,15 @@ class Event extends Component< IProps>  {
 	render() {
 		const {event, event: {createdBy, title, linkID}}= this.props;
 		return <div>
-			<h1>{title}</h1>
-			<h5>Event Created By: {createdBy}</h5>
-			<p>This event can be accessed by sharing this link:<br />
-			{"https://are-you-free.herokuapp.com/event/"+ linkID}</p>
-				{this.renderForm()}
+			<div className="center">
+				<h2>Event: {title}</h2>
+				<h5>Event Created By: {createdBy}</h5>
+				<p>This event can be accessed by sharing this link:<br />
+				{"https://are-you-free.herokuapp.com/event/"+ linkID}</p>
+			</div>
+				<div>
+					{this.renderForm()}
+				</div>
 				<ResponseResults event={event}/>
 		</div>;
 		
