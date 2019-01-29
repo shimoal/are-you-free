@@ -71,7 +71,7 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 										onChange={event => this.handleOptionsChange(optionIndex, event)}
 										size={3}>
 										{Object.keys(OPTION_CHOICES).map(choice => {
-											return 	<option key={choice} value={choice}>{OPTION_CHOICES[choice]}</option>;
+											return 	<option key={choice} value={OPTION_CHOICES[choice]}>{OPTION_CHOICES[choice]}</option>;
 										})}
 									</select>
 							</div>);
