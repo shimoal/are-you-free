@@ -29,10 +29,7 @@ class ResponseResults extends Component<IProps> {
 	
 	render() {
 		if (this.state.responses.length) {
-			return 	<div>
-				<h2>Results</h2>
-				<Responses responses={this.state.responses} options={this.props.event.options} />
-			</div>;
+			return 	<Responses responses={this.state.responses} options={this.props.event.options} />;
 		}
 		return <p>No Responses</p>;
 

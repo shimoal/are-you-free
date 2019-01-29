@@ -20,30 +20,33 @@ interface IProps {
 
 export default (props: IProps) => {
 	return (
-		<table>
-				<thead>
-					<tr>
-						<th>
-							Name
-						</th>
-						{props.options.map((option, i) => {
-							return <th key={`option-label-${i}`}>
-								{option.label}
+		<div>
+			<h3 className="center">Responses</h3>
+			<table>
+					<thead>
+						<tr>
+							<th>
+								Name
 							</th>
+							{props.options.map((option, i) => {
+								return <th key={`option-label-${i}`}>
+									{option.label}
+								</th>
+							})}
+						</tr>
+					</thead>
+					<tbody>
+						{props.responses.map((response: IResponse, i) => {
+							return (
+								<tr key={`response-${i}`}>
+									<td>{response.name}</td>
+									{response.options.map((option, i) => {
+										return <td key={`response-option-${i}`} >{option.response_option.choice}</td>
+									})}
+								</tr>);
 						})}
-					</tr>
-				</thead>
-				<tbody>
-					{props.responses.map((response: IResponse, i) => {
-						return (
-							<tr key={`response-${i}`}>
-								<td>{response.name}</td>
-								{response.options.map((option, i) => {
-									return <td key={`response-option-${i}`} >{option.response_option.choice}</td>
-								})}
-							</tr>);
-					})}
-				</tbody>
-			</table>
+					</tbody>
+				</table>
+			</div>
 	);
 }
