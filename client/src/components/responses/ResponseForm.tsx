@@ -3,12 +3,14 @@ const { Component } = React;
 import axios from "axios";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
+import CancelButton from '../UI/CancelButton';
 import SubmitButton from '../UI/SubmitButton';
 
 import IEvent from '../../interfaces/IEvent';
 
 interface IProps {
-	event: IEvent
+	event: IEvent;
+	cancelResponse: () => void;
 }
 
 const OPTION_CHOICES = {
@@ -77,6 +79,7 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 						})}
 					</div>
 
+					<CancelButton onClick={this.props.cancelResponse}/>
 					<SubmitButton value="Create" />
 
 				</form>

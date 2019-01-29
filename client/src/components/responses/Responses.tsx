@@ -47,14 +47,6 @@ export default (props: IProps) => {
 						})}
 					</tbody>
 				</table>
-				<div className="row center">
-					<a
-						href={`/events/responses/${props.event.linkID}/new`}
-						className="btn-large amber darken-2"
-					>
-					Add a Response
-				</a>
-			</div>
 			</div>
 	);
 }
