@@ -1,47 +1,47 @@
 import * as React from "react";
 import "../../styles/TimeUnit.css";
 
-const BUSY_STATUS = "busy";
-const FREE_STATUS = "free";
-
 import Paper from '@material-ui/core/Paper'
 
 interface IProps {
   label: string;
   height: number;
   width: number;
+
 }
 
-export default class TimeBlock extends React.Component<
-  IProps,
-  { isFree: boolean }
-> {
+interface IState {
+  selected: boolean;
+}
+
+class TimeBlock extends React.Component<IProps, IState> {
   state = {
-    isFree: false
+    selected: false
   };
 
   render() {
     const { label, height, width } = this.props;
-    const { isFree } = this.state;
-    const status = isFree ? FREE_STATUS : BUSY_STATUS;
+    const { selected } = this.state;
 
     return (
       <Paper 
-        className={"timeblock " + status}
+        className={"timeblock"}
         onClick={() => {
           this.setState(prevState => ({
-            isFree: !prevState.isFree
+            selected: !prevState.selected
           }));
         }}
         style={{ 
           height, 
           width,
-          backgroundColor: this.state.isFree ? 'lightgreen' : ''
+          backgroundColor: selected ? 'lightgreen' : ''
         }}
       >
         <p>{label}</p>
-        <p>{status}</p>
+        <p>{selected && 'selected'}</p>
       </Paper>
     );
   }
 }
+
+export default TimeBlock;

@@ -8,12 +8,3 @@
 .timeblock:hover {
   cursor: pointer;
 }
-
-.free {
-  background-color: lightblue;
-}
-
-
-.busy {
-  background-color: lightpink;
-}
