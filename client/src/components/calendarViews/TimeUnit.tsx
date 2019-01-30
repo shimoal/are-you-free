@@ -4,6 +4,7 @@ import "../../styles/TimeUnit.css";
 import Paper from '@material-ui/core/Paper'
 
 interface IProps {
+  selectOption: (event: any, value: string) => void;
   label: string;
   height: number;
   width: number;
@@ -20,13 +21,14 @@ class TimeBlock extends React.Component<IProps, IState> {
   };
 
   render() {
-    const { label, height, width } = this.props;
+    const { selectOption, label, height, width } = this.props;
     const { selected } = this.state;
 
     return (
       <Paper 
         className={"timeblock"}
-        onClick={() => {
+        onClick={(event) => {
+          selectOption(event, label);
           this.setState(prevState => ({
             selected: !prevState.selected
           }));

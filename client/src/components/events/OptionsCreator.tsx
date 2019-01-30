@@ -16,6 +16,7 @@ interface IProps {
 	handleOptionsChange: (optionIndex: number, event: any) => void;
 	options: Array<string>;
 	removeOption: (optionIndex: number, event: any) => void;
+	selectOption: (event: any, value: string) => void;
 }
 
 class OptionsCreator extends Component<IProps> {
@@ -24,18 +25,18 @@ class OptionsCreator extends Component<IProps> {
   };
 
   getView(date: any) {
-  	const {addOption, options, handleOptionsChange, removeOption} = this.props;
+  	const {addOption, options, handleOptionsChange, removeOption, selectOption} = this.props;
 		switch (this.state.value) {
 			case 4: 
 				return <CustomEventOptions addOption={addOption} options={options} handleOptionsChange={handleOptionsChange} removeOption={removeOption}/>
 			case 3:
-				return <DayView date={date} />;
+				return <DayView selectOption={selectOption} date={date} />;
 			case 2:
-				return <WeekView date={date} />;
+				return <WeekView selectOption={selectOption} date={date} />;
 			case 1:
-				return <MonthView date={date} />;
+				return <MonthView selectOption={selectOption} date={date} />;
 			case 0:
-				return <YearView date={date} />;
+				return <YearView selectOption={selectOption} date={date} />;
 			default:
 				return <div />;
 		}

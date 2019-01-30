@@ -83,6 +83,15 @@ class EventForm extends Component<{} & RouteComponentProps> {
 		event.preventDefault();
 	}
 
+	selectOption(e: any, value: string) {
+		this.setState((prevState: IState) => {
+			const options = [...prevState.options];
+			options.push(value);
+			return {...prevState, options};
+		});
+		e.preventDefault();
+	}
+
 	render() {
 		return (
 			<div className="row">
@@ -109,7 +118,8 @@ class EventForm extends Component<{} & RouteComponentProps> {
 							addOption={(event) => this.addOption(event)} 
 							options={this.state.options} 
 							handleOptionsChange={(optionIndex, event) => this.handleOptionsChange(optionIndex, event)} 
-							removeOption={(optionIndex, event) => this.removeOption(optionIndex, event)} />
+							removeOption={(optionIndex, event) => this.removeOption(optionIndex, event)}
+							selectOption={(event, value) => this.selectOption(event, value)} />
 
 
 					<div className="row">
