@@ -36,7 +36,7 @@ class EventForm extends Component<{} & RouteComponentProps> {
 		createdBy: "",
 		eventType: "",
 		title: "", 
-		options: [""]
+		options: []
 	};
 
 	addOption(event: any) {
@@ -60,7 +60,7 @@ class EventForm extends Component<{} & RouteComponentProps> {
 	}
 
 	handleOptionsChange(optionIndex: number, event: { target: { value: string} }) {
-		const options = [...this.state.options];
+		const options = this.state.options.length ? [...this.state.options] : [""];
 		options[optionIndex] = event.target.value;
 		this.setState({options});
 	}
