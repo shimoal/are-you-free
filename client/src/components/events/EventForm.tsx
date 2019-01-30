@@ -93,7 +93,7 @@ class EventForm extends Component<{} & RouteComponentProps> {
 
 	render() {
 		return (
-			<div className="row">
+			<div className="row container">
 				<form className="col s12" onSubmit={event => this.handleSubmit(event)}>
 
 						{FIELDS.map(({ label, name, placeholder }) => {

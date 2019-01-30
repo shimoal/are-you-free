@@ -63,7 +63,7 @@ class OptionsCreator extends Component<IProps> {
 		const calendarView = this.getView(date);
 
 		return (
-			<div>
+			<div className="row">
 			<h5>Options</h5>
 			  <AppBar position="static">
 	        <Tabs value={value} onChange={(event, value) => this.handleChange(event, value)}>
@@ -75,7 +75,7 @@ class OptionsCreator extends Component<IProps> {
 	        </Tabs>
         </AppBar>
 					{calendarView}
-        </div>
+      </div>
 		);
 	}
 }
