@@ -4,6 +4,7 @@ import axios from "axios";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
 import CancelButton from '../UI/CancelButton';
+import ResponseOptions from './ResponseOptions';
 import SubmitButton from '../UI/SubmitButton';
 
 import IEvent from '../../interfaces/IEvent';
@@ -63,25 +64,7 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 						</div>
 
 
-						{options.map((option, optionIndex) => {
-							return	(
-								<div key={"response-options-"+optionIndex} className="row">
-									<div className="input-field col s12">
-										<select 
-											className="browser-default" 
-											value={options[optionIndex].choice} 
-											name={option.label} 
-											onChange={event => this.handleOptionsChange(optionIndex, event)}
-											size={3}>
-											{Object.keys(OPTION_CHOICES).map(choice => {
-												return 	<option key={choice} value={OPTION_CHOICES[choice]}>{OPTION_CHOICES[choice]}</option>;
-											})}
-										</select>
-										<label className="active" htmlFor={option.label}>{option.label}</label>
-									</div>
-								</div>
-							);
-						})}
+						<ResponseOptions handleOptionsChange={(optionsIndex, event) => this.handleOptionsChange(optionsIndex, event)} options={options}/>
 
 					<div className="row center">
 						<div className="col s6">
