@@ -1,13 +1,14 @@
 import * as React from 'react';
 
 interface IProps {
+	addOption: (event: any) => void;
 	handleOptionsChange: (optionIndex: number, event: any) => void;
 	options: Array<string>;
 	removeOption: (optionIndex: number, event: any) => void;
 }
 
 export default (props: IProps) => {
-	const {handleOptionsChange, options, removeOption} = props;
+	const {addOption, handleOptionsChange, options, removeOption} = props;
 
 	return <div> 
 		{props.options.map((option, optionIndex) => {
@@ -34,5 +35,12 @@ export default (props: IProps) => {
 				</div>
 			);
 		})}
+		<div className="row right">
+			<div className="col s12 right">
+			<button className="btn" onClick={addOption}>
+				Add Option
+			</button>
+			</div>
+		</div>
 	</div>;
 }

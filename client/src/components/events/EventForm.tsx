@@ -105,16 +105,12 @@ class EventForm extends Component<{} & RouteComponentProps> {
 							);
 						})}
 
-						<OptionsCreator options={this.state.options} handleOptionsChange={(optionIndex, event) => this.handleOptionsChange(optionIndex, event)} removeOption={this.removeOption} />
+						<OptionsCreator 
+							addOption={(event) => this.addOption(event)} 
+							options={this.state.options} 
+							handleOptionsChange={(optionIndex, event) => this.handleOptionsChange(optionIndex, event)} 
+							removeOption={(optionIndex, event) => this.removeOption(optionIndex, event)} />
 
-
-					<div className="row right">
-						<div className="col s12 right">
-						<button className="btn" onClick={(event) => this.addOption(event)}>
-							Add Option
-						</button>
-						</div>
-					</div>
 
 					<div className="row">
 						<div className="col s12">

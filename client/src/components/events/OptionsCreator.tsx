@@ -12,6 +12,7 @@ import WeekView from "../calendarViews/WeekView";
 import YearView from "../calendarViews/YearView";
 
 interface IProps {
+	addOption: (event: any) => void;
 	handleOptionsChange: (optionIndex: number, event: any) => void;
 	options: Array<string>;
 	removeOption: (optionIndex: number, event: any) => void;
@@ -23,10 +24,10 @@ class OptionsCreator extends Component<IProps> {
   };
 
   getView(date: any) {
-  	const {options, handleOptionsChange, removeOption} = this.props;
+  	const {addOption, options, handleOptionsChange, removeOption} = this.props;
 		switch (this.state.value) {
 			case 4: 
-				return <CustomEventOptions options={options} handleOptionsChange={handleOptionsChange} removeOption={removeOption}/>
+				return <CustomEventOptions addOption={addOption} options={options} handleOptionsChange={handleOptionsChange} removeOption={removeOption}/>
 			case 3:
 				return <DayView date={date} />;
 			case 2:
