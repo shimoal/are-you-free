@@ -3,6 +3,7 @@ import * as React from "react";
 import Button from "@material-ui/core/Button";
 import StepEventDescription from "./StepEventDescription";
 import StepEventType from "./StepEventType";
+import StepEventOptions from "./StepEventOptions";
 
 interface IProps {
 	activeStep: number;
@@ -17,6 +18,7 @@ interface IProps {
 	handleSubmit: () => void;
 	handleTextFieldChange: (field: string, value: string) => void;
 	stepLabels: Array<string>;
+	selectOption: (e: any, value: string) => void;
 }
 
 export default (props: IProps) => {
@@ -28,7 +30,8 @@ export default (props: IProps) => {
 		handleNext,
 		handleSubmit,
 		handleTextFieldChange,
-		stepLabels
+		stepLabels,
+		selectOption
 	} = props;
 
 	let content = <div />;
@@ -50,7 +53,9 @@ export default (props: IProps) => {
 			);
 			break;
 		case 2:
-			content = <p>"Page 3: select options from calendar"</p>;
+			content = (
+				<StepEventOptions eventType={eventType} selectOption={selectOption} />
+			);
 			break;
 		case 3:
 			content = <p>"Page 4: verify all information"</p>;

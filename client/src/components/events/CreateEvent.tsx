@@ -6,13 +6,13 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 import EventForm from "./EventForm";
 import EventStepper from "./EventStepper";
 
-// interface IState {
-// 	createdBy: string;
-// 	description: string;
-// 	eventType: string;
-// 	title: string;
-// 	options: Array<string>;
-// }
+interface IState {
+	createdBy: string;
+	description: string;
+	eventType: string;
+	title: string;
+	options: Array<string>;
+}
 
 class CreateEvent extends Component<{} & RouteComponentProps> {
 	state = {
@@ -45,6 +45,15 @@ class CreateEvent extends Component<{} & RouteComponentProps> {
 		event.preventDefault();
 	};
 
+	selectOption = (e: any, value: string) => {
+		this.setState((prevState: IState) => {
+			const options = [...prevState.options];
+			options.push(value);
+			return { ...prevState, options };
+		});
+		e.preventDefault();
+	};
+
 	render() {
 		const { createdBy, title, description, eventType } = this.state;
 		return (
@@ -54,6 +63,7 @@ class CreateEvent extends Component<{} & RouteComponentProps> {
 					eventDescription={{ title, createdBy, description }}
 					eventType={eventType}
 					handleTextFieldChange={this.handleTextFieldChange}
+					selectOption={this.selectOption}
 				/>
 				<EventForm />
 			</div>

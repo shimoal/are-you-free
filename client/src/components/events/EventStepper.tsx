@@ -21,6 +21,7 @@ interface IProps {
 	};
 	eventType: string;
 	handleTextFieldChange: (field: string, value: string) => void;
+	selectOption: (e: any, value: string) => void;
 }
 
 interface IState {
@@ -51,7 +52,12 @@ class EventStepper extends Component<IProps, IState> {
 	};
 
 	render() {
-		const { eventDescription, eventType, handleTextFieldChange } = this.props;
+		const {
+			eventDescription,
+			eventType,
+			handleTextFieldChange,
+			selectOption
+		} = this.props;
 		const { activeStep } = this.state;
 		return (
 			<div>
@@ -73,6 +79,7 @@ class EventStepper extends Component<IProps, IState> {
 					handleSubmit={this.handleSubmit}
 					handleTextFieldChange={handleTextFieldChange}
 					stepLabels={STEPS}
+					selectOption={selectOption}
 				/>
 			</div>
 		);
