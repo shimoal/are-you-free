@@ -1,9 +1,10 @@
-import IOption from './IOption';
+import IOption from "./IOption";
 
 export default interface IEvent {
-	id: number,
-	createdBy: string,
-	title: string,
-	options: Array<IOption>,
-	linkID: string
+	id: number;
+	createdBy: string;
+	description: string;
+	title: string;
+	options: Array<IOption>;
+	linkID: string;
 }
