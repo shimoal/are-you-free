@@ -1,49 +1,36 @@
 import * as React from "react";
 import "../../styles/TimeUnit.css";
 
-import Paper from '@material-ui/core/Paper'
+import Paper from "@material-ui/core/Paper";
 
 interface IProps {
   selectOption: (event: any, value: string) => void;
   label: string;
   height: number;
+  options: Array<string>;
   width: number;
-
 }
 
-interface IState {
-  selected: boolean;
-}
+const TimeBlock = (props: IProps) => {
+  const { selectOption, label, height, width, options } = props;
+  const selected = options.indexOf(label) > -1;
 
-class TimeBlock extends React.Component<IProps, IState> {
-  state = {
-    selected: false
-  };
-
-  render() {
-    const { selectOption, label, height, width } = this.props;
-    const { selected } = this.state;
-
-    return (
-      <Paper 
-        className={"timeblock"}
-        onClick={(event) => {
-          selectOption(event, label);
-          this.setState(prevState => ({
-            selected: !prevState.selected
-          }));
-        }}
-        style={{ 
-          height, 
-          width,
-          backgroundColor: selected ? 'lightgreen' : ''
-        }}
-      >
-        <p>{label}</p>
-        <p>{selected && 'selected'}</p>
-      </Paper>
-    );
-  }
-}
+  return (
+    <Paper
+      className={"timeblock"}
+      onClick={event => {
+        selectOption(event, label);
+      }}
+      style={{
+        height,
+        width,
+        backgroundColor: selected ? "lightgreen" : ""
+      }}
+    >
+      <p>{label}</p>
+      <p>{selected && "selected"}</p>
+    </Paper>
+  );
+};
 
 export default TimeBlock;

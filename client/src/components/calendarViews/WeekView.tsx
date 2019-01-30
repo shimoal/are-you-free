@@ -6,18 +6,31 @@ import { DAY_NAMES } from "../../helpers/constants";
 import { getWeekDates } from "../../helpers/utils";
 import TimeUnit from "./TimeUnit";
 
-import IProps from '../../interfaces/ICalendarViewProps';
+import ICalendarProps from "../../interfaces/ICalendarViewProps";
 
-export default class WeekView extends Component<IProps> {
+interface IProps {
+	options: Array<string>;
+}
+
+export default class WeekView extends Component<ICalendarProps & IProps> {
 	render() {
-		const {selectOption, date} = this.props;
+		const { selectOption, date, options } = this.props;
 
 		return (
 			<div className="calendar">
 				<h2>{getWeekDates(date)}</h2>
 				<div id="weekView">
 					{DAY_NAMES.map((name, i) => {
-						return <TimeUnit selectOption={selectOption} label={name} key={i} height={300} width={60} />;
+						return (
+							<TimeUnit
+								selectOption={selectOption}
+								options={options}
+								label={name}
+								key={i}
+								height={300}
+								width={60}
+							/>
+						);
 					})}
 				</div>
 			</div>

@@ -6,12 +6,15 @@ import { MONTH_NAMES } from "../../helpers/constants";
 import { getNumDaysInMonth } from "../../helpers/utils";
 import TimeUnit from "./TimeUnit";
 
-import IProps from '../../interfaces/ICalendarViewProps';
+import ICalendarProps from "../../interfaces/ICalendarViewProps";
 
+interface IProps {
+	options: Array<string>;
+}
 
-export default class MonthView extends Component<IProps> {
+export default class MonthView extends Component<ICalendarProps & IProps> {
 	render() {
-		const { selectOption, date } = this.props;
+		const { selectOption, date, options } = this.props;
 
 		const monthIndex = date.getMonth();
 		const monthName = MONTH_NAMES[monthIndex];
@@ -21,7 +24,14 @@ export default class MonthView extends Component<IProps> {
 
 		for (let i = 1; i <= daysInMonth; i++) {
 			days.push(
-				<TimeUnit selectOption={selectOption} label={i.toString()} key={i} height={80} width={60} />
+				<TimeUnit
+					options={options}
+					selectOption={selectOption}
+					label={i.toString()}
+					key={i}
+					height={80}
+					width={60}
+				/>
 			);
 		}
 

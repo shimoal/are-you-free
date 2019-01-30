@@ -5,18 +5,31 @@ import "../../styles/YearView.css";
 import { MONTH_NAMES } from "../../helpers/constants";
 import TimeUnit from "./TimeUnit";
 
-import IProps from '../../interfaces/ICalendarViewProps';
+import ICalendarProps from "../../interfaces/ICalendarViewProps";
 
-export default class YearView extends Component<IProps> {
+interface IProps {
+	options: Array<string>;
+}
+
+export default class YearView extends Component<ICalendarProps & IProps> {
 	render() {
-		const { selectOption, date } = this.props;
+		const { selectOption, date, options } = this.props;
 
 		return (
 			<div className="calendar">
 				<h2>{date.getFullYear()}</h2>
 				<div id="yearView">
 					{MONTH_NAMES.map((name, i) => {
-						return <TimeUnit selectOption={selectOption} label={name} key={i} height={100} width={100} />;
+						return (
+							<TimeUnit
+								selectOption={selectOption}
+								options={options}
+								label={name}
+								key={i}
+								height={100}
+								width={100}
+							/>
+						);
 					})}
 				</div>
 			</div>
