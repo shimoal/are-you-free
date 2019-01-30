@@ -9,11 +9,11 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 
 interface IProps {
 	eventType: string;
-	handleTextFieldChange: (field: string, value: string) => void;
+	handleEventTypeChange: (value: string) => void;
 }
 
 export default (props: IProps) => {
-	const { eventType, handleTextFieldChange } = props;
+	const { eventType, handleEventTypeChange } = props;
 	console.log("event type:", eventType);
 	return (
 		<div>
@@ -25,7 +25,7 @@ export default (props: IProps) => {
 					aria-label="EventType"
 					name="eventType"
 					value={eventType}
-					onChange={(event, value) => handleTextFieldChange("eventType", value)}
+					onChange={(event, value) => handleEventTypeChange(value)}
 				>
 					<FormControlLabel
 						value="year"

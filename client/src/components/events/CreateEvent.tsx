@@ -31,6 +31,13 @@ class CreateEvent extends Component<{} & RouteComponentProps> {
 		event.preventDefault();
 	};
 
+	handleEventTypeChange = (value: string) => {
+		this.setState({
+			options: [],
+			eventType: value
+		});
+	};
+
 	handleOptionsChange = (
 		optionIndex: number,
 		event: { target: { value: string } }
@@ -88,6 +95,7 @@ class CreateEvent extends Component<{} & RouteComponentProps> {
 					addCustomOption={this.addCustomOption}
 					eventDescription={{ title, createdBy, description }}
 					eventType={eventType}
+					handleEventTypeChange={this.handleEventTypeChange}
 					handleOptionsChange={this.handleOptionsChange}
 					handleTextFieldChange={this.handleTextFieldChange}
 					options={options}

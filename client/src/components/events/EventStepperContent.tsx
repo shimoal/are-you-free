@@ -18,6 +18,7 @@ interface IProps {
 	handleBack: () => void;
 	handleNext: () => void;
 	handleSubmit: (e: any) => void;
+	handleEventTypeChange: (value: string) => void;
 	handleOptionsChange: (optionIndex: number, event: any) => void;
 	handleTextFieldChange: (field: string, value: string) => void;
 	options: Array<string>;
@@ -33,6 +34,7 @@ export default (props: IProps) => {
 		eventDescription,
 		eventType,
 		handleBack,
+		handleEventTypeChange,
 		handleNext,
 		handleOptionsChange,
 		handleSubmit,
@@ -57,7 +59,7 @@ export default (props: IProps) => {
 			content = (
 				<StepEventType
 					eventType={eventType}
-					handleTextFieldChange={handleTextFieldChange}
+					handleEventTypeChange={handleEventTypeChange}
 				/>
 			);
 			break;

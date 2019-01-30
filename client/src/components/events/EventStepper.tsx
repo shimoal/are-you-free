@@ -21,6 +21,7 @@ interface IProps {
 		description: string;
 	};
 	eventType: string;
+	handleEventTypeChange: (value: string) => void;
 	handleOptionsChange: (optionIndex: number, event: any) => void;
 	handleSubmit: (e: any) => void;
 	handleTextFieldChange: (field: string, value: string) => void;
@@ -55,6 +56,7 @@ class EventStepper extends Component<IProps, IState> {
 			addCustomOption,
 			eventDescription,
 			eventType,
+			handleEventTypeChange,
 			handleTextFieldChange,
 			options,
 			removeOption,
@@ -81,6 +83,7 @@ class EventStepper extends Component<IProps, IState> {
 					eventType={eventType}
 					handleBack={this.handleBack}
 					handleNext={this.handleNext}
+					handleEventTypeChange={handleEventTypeChange}
 					handleOptionsChange={handleOptionsChange}
 					handleSubmit={handleSubmit}
 					handleTextFieldChange={handleTextFieldChange}
