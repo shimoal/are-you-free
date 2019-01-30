@@ -22,6 +22,7 @@ interface IProps {
 	};
 	eventType: string;
 	handleOptionsChange: (optionIndex: number, event: any) => void;
+	handleSubmit: (e: any) => void;
 	handleTextFieldChange: (field: string, value: string) => void;
 	options: Array<string>;
 	removeOption: (optionIndex: number, event: any) => void;
@@ -49,12 +50,6 @@ class EventStepper extends Component<IProps, IState> {
 		}));
 	};
 
-	handleSubmit = () => {
-		this.setState({
-			activeStep: 0
-		});
-	};
-
 	render() {
 		const {
 			addCustomOption,
@@ -64,7 +59,8 @@ class EventStepper extends Component<IProps, IState> {
 			options,
 			removeOption,
 			selectOption,
-			handleOptionsChange
+			handleOptionsChange,
+			handleSubmit
 		} = this.props;
 		const { activeStep } = this.state;
 		return (
@@ -86,7 +82,7 @@ class EventStepper extends Component<IProps, IState> {
 					handleBack={this.handleBack}
 					handleNext={this.handleNext}
 					handleOptionsChange={handleOptionsChange}
-					handleSubmit={this.handleSubmit}
+					handleSubmit={handleSubmit}
 					handleTextFieldChange={handleTextFieldChange}
 					options={options}
 					removeOption={removeOption}

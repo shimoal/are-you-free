@@ -17,7 +17,7 @@ interface IProps {
 	eventType: string;
 	handleBack: () => void;
 	handleNext: () => void;
-	handleSubmit: () => void;
+	handleSubmit: (e: any) => void;
 	handleOptionsChange: (optionIndex: number, event: any) => void;
 	handleTextFieldChange: (field: string, value: string) => void;
 	options: Array<string>;

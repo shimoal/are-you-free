@@ -93,6 +93,7 @@ class CreateEvent extends Component<{} & RouteComponentProps> {
 					options={options}
 					removeOption={this.removeOption}
 					selectOption={this.selectOption}
+					handleSubmit={this.handleSubmit}
 				/>
 				<EventForm />
 			</div>
