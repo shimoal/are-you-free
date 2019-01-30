@@ -2,8 +2,15 @@ import * as React from "react";
 
 import Paper from '@material-ui/core/Paper'
 
-interface IProps {
+interface IOption {
+  id: number;
   label: string;
+  choice: string;
+}
+
+interface IProps {
+  handleOptionsChange: (optionId: number, choice: string) => void;
+  option: IOption;
 }
 
 interface IState {
@@ -18,17 +25,16 @@ class ResponseOptionChoice extends React.Component<IProps, IState> {
   };
 
   render() {
-    const { label } = this.props;
+    const { handleOptionsChange, option: {label, id} } = this.props;
     const { selected } = this.state;
 
     return (
       <Paper 
         onClick={(event) => {
           this.setState(prevState => {
-            if (prevState.selected === 2) {
-              return {selected: 0};
-            }
-            return {selected: prevState.selected + 1};
+            const choiceIndex = prevState.selected === 2 ? 0 : prevState.selected + 1;
+            handleOptionsChange(id, OPTION_CHOICES[choiceIndex]);
+            return {selected: choiceIndex};
           });
         }}
         style={{ 

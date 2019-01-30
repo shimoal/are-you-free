@@ -9,15 +9,15 @@ interface IOption {
 }
 
 interface IProps {
-	handleOptionsChange: (optionIndex: number, event: any) => void;
+	handleOptionsChange: (optionId: number, choice: string) => void;
 	options: Array<IOption>;
 }
 
 const ResponseOptions = (props: IProps) => {
-	const {options} = props;
+	const {handleOptionsChange, options} = props;
 	return <div>{options.map((option, optionIndex) => {
 		return	(
-			<ResponseOptionChoice label={option.label}/>
+			<ResponseOptionChoice handleOptionsChange={handleOptionsChange} option={option}/>
 		);
 	})}
 	</div>;

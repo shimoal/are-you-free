@@ -16,11 +16,6 @@ const FIELDS = [
 		label: "Creator (Example: Your name)",
 		name: "createdBy",
 		placeholder: "John Smith"
-	},
-	{
-		label: "Event Type",
-		name: "eventType",
-		placeholder: "Weekly"
 	}
 ];
 
@@ -57,6 +52,10 @@ class EventForm extends Component<{} & RouteComponentProps> {
 
 	handleChange(field: string, event: { target: { value: string } }) {
 		this.setState({ [field]: event.target.value });
+	}
+
+	handleEventTypeChange(eventType: string) {
+		this.setState({eventType});
 	}
 
 	handleOptionsChange(optionIndex: number, event: { target: { value: string} }) {
@@ -117,6 +116,7 @@ class EventForm extends Component<{} & RouteComponentProps> {
 						<OptionsCreator 
 							addOption={(event) => this.addOption(event)} 
 							options={this.state.options} 
+							handleEventTypeChange={(eventType) => this.handleEventTypeChange(eventType)}
 							handleOptionsChange={(optionIndex, event) => this.handleOptionsChange(optionIndex, event)} 
 							removeOption={(optionIndex, event) => this.removeOption(optionIndex, event)}
 							selectOption={(event, value) => this.selectOption(event, value)} />

@@ -26,9 +26,12 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 		options: this.props.event.options.map(option => ({...option, choice: OPTION_CHOICES.no}))
 	};
 
-	handleOptionsChange(optionIndex: number, e: { target: { value: string} }) {
+	handleOptionsChange(optionId: number, choice: string ) {
 		const options = [...this.state.options];
-		options[optionIndex].choice = e.target.value;
+		const optionIndex = options.findIndex(option => {
+			return option.id === optionId;
+		})
+		options[optionIndex].choice = choice;
 		this.setState({options});
 	}
 
@@ -64,7 +67,10 @@ class EventForm extends Component<IProps & RouteComponentProps> {
 						</div>
 
 
-						<ResponseOptions handleOptionsChange={(optionsIndex, event) => this.handleOptionsChange(optionsIndex, event)} options={options}/>
+						<ResponseOptions 
+							handleOptionsChange={(optionId, event) => this.handleOptionsChange(optionId, event)} 
+							options={options}
+						/>
 
 					<div className="row center">
 						<div className="col s6">

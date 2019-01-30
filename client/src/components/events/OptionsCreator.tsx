@@ -13,11 +13,20 @@ import YearView from "../calendarViews/YearView";
 
 interface IProps {
 	addOption: (event: any) => void;
+	handleEventTypeChange: (eventType: string) => void;
 	handleOptionsChange: (optionIndex: number, event: any) => void;
 	options: Array<string>;
 	removeOption: (optionIndex: number, event: any) => void;
 	selectOption: (event: any, value: string) => void;
 }
+
+const EVENT_TYPE = [
+	'year',
+	'month',
+	'week',
+	'day',
+	'custom'
+];
 
 class OptionsCreator extends Component<IProps> {
 	state = {
@@ -26,16 +35,16 @@ class OptionsCreator extends Component<IProps> {
 
   getView(date: any) {
   	const {addOption, options, handleOptionsChange, removeOption, selectOption} = this.props;
-		switch (this.state.value) {
-			case 4: 
+		switch (EVENT_TYPE[this.state.value]) {
+			case 'custom': 
 				return <CustomEventOptions addOption={addOption} options={options} handleOptionsChange={handleOptionsChange} removeOption={removeOption}/>
-			case 3:
+			case 'day':
 				return <DayView selectOption={selectOption} date={date} />;
-			case 2:
+			case 'week':
 				return <WeekView selectOption={selectOption} date={date} />;
-			case 1:
+			case 'month':
 				return <MonthView selectOption={selectOption} date={date} />;
-			case 0:
+			case 'year':
 				return <YearView selectOption={selectOption} date={date} />;
 			default:
 				return <div />;
@@ -43,6 +52,7 @@ class OptionsCreator extends Component<IProps> {
 	}
 
 	handleChange(event: any, value: string) {
+		this.props.handleEventTypeChange(EVENT_TYPE[value]);
 		this.setState({value});
 	}
 
