@@ -3,7 +3,6 @@ const { Component } = React;
 import axios from "axios";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
-import EventForm from "./EventForm";
 import EventStepper from "./EventStepper";
 
 interface IState {
@@ -95,7 +94,6 @@ class CreateEvent extends Component<{} & RouteComponentProps> {
 					selectOption={this.selectOption}
 					handleSubmit={this.handleSubmit}
 				/>
-				<EventForm />
 			</div>
 		);
 	}
