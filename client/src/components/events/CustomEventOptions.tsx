@@ -22,8 +22,6 @@ export default (props: IProps) => {
 						<input 
 							id={`options-${optionIndex}`}
 							onChange={event => {
-								console.log('inside handle option:', event);
-								console.log('option index:', optionIndex);
 								handleOptionsChange(optionIndex, event);
 							}}
 							type="text"
