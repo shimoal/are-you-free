@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import StepEventDescription from "./StepEventDescription";
 import StepEventType from "./StepEventType";
 import StepEventOptions from "./StepEventOptions";
+import StepEventVerification from "./StepEventVerification";
 
 interface IProps {
 	activeStep: number;
@@ -73,7 +74,13 @@ export default (props: IProps) => {
 			);
 			break;
 		case 3:
-			content = <p>"Page 4: verify all information"</p>;
+			content = (
+				<StepEventVerification
+					eventDescription={eventDescription}
+					eventType={eventType}
+					options={options}
+				/>
+			);
 			break;
 		default:
 			break;
