@@ -14,13 +14,17 @@ const STEPS = [
 ];
 
 interface IProps {
+	addCustomOption: (event: any) => void;
 	eventDescription: {
 		title: string;
 		createdBy: string;
 		description: string;
 	};
 	eventType: string;
+	handleOptionsChange: (optionIndex: number, event: any) => void;
 	handleTextFieldChange: (field: string, value: string) => void;
+	options: Array<string>;
+	removeOption: (optionIndex: number, event: any) => void;
 	selectOption: (e: any, value: string) => void;
 }
 
@@ -53,10 +57,14 @@ class EventStepper extends Component<IProps, IState> {
 
 	render() {
 		const {
+			addCustomOption,
 			eventDescription,
 			eventType,
 			handleTextFieldChange,
-			selectOption
+			options,
+			removeOption,
+			selectOption,
+			handleOptionsChange
 		} = this.props;
 		const { activeStep } = this.state;
 		return (
@@ -72,12 +80,16 @@ class EventStepper extends Component<IProps, IState> {
 				</Stepper>
 				<EventStepperContent
 					activeStep={activeStep}
+					addCustomOption={addCustomOption}
 					eventDescription={eventDescription}
 					eventType={eventType}
 					handleBack={this.handleBack}
 					handleNext={this.handleNext}
+					handleOptionsChange={handleOptionsChange}
 					handleSubmit={this.handleSubmit}
 					handleTextFieldChange={handleTextFieldChange}
+					options={options}
+					removeOption={removeOption}
 					stepLabels={STEPS}
 					selectOption={selectOption}
 				/>

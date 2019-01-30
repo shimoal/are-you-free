@@ -27,18 +27,31 @@ export default (props: IProps) => {
 					value={eventType}
 					onChange={(event, value) => handleTextFieldChange("eventType", value)}
 				>
-					<FormControlLabel value="year" control={<Radio />} label="Year">
-						View by Year
-					</FormControlLabel>
-					<FormControlLabel value="month" control={<Radio />} label="Month">
-						View by Month
-					</FormControlLabel>
-					<FormControlLabel value="week" control={<Radio />} label="Week">
-						View by Week
-					</FormControlLabel>
-					<FormControlLabel value="day" control={<Radio />} label="Day">
-						View by Day
-					</FormControlLabel>
+					<FormControlLabel
+						value="year"
+						control={<Radio />}
+						label="View by Year"
+					/>
+					<FormControlLabel
+						value="month"
+						control={<Radio />}
+						label="View by Month"
+					/>
+					<FormControlLabel
+						value="week"
+						control={<Radio />}
+						label="View by Week"
+					/>
+					<FormControlLabel
+						value="day"
+						control={<Radio />}
+						label="View by Day"
+					/>
+					<FormControlLabel
+						value="custom"
+						control={<Radio />}
+						label="Create Custom Options"
+					/>
 				</RadioGroup>
 			</FormControl>
 		</div>

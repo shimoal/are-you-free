@@ -1,19 +1,18 @@
 import * as React from "react";
 const { Component } = React;
 
-// import CustomEventOptions from "./CustomEventOptions";
+import CustomEventOptions from "./CustomEventOptions";
 import DayView from "../calendarViews/DayView";
 import MonthView from "../calendarViews/MonthView";
 import WeekView from "../calendarViews/WeekView";
 import YearView from "../calendarViews/YearView";
 
 interface IProps {
-	// addOption: (event: any) => void;
+	addCustomOption: (event: any) => void;
 	eventType: string;
-	// handleEventTypeChange: (eventType: string) => void;
-	// handleOptionsChange: (optionIndex: number, event: any) => void;
-	// options: Array<string>;
-	// removeOption: (optionIndex: number, event: any) => void;
+	handleOptionsChange: (optionIndex: number, event: any) => void;
+	options: Array<string>;
+	removeOption: (optionIndex: number, event: any) => void;
 	selectOption: (event: any, value: string) => void;
 }
 
@@ -24,24 +23,23 @@ class StepEventOptions extends Component<IProps> {
 
 	getView(date: any) {
 		const {
-			// addOption,
+			addCustomOption,
 			eventType,
-			// options,
-			// handleOptionsChange,
-			// removeOption,
+			options,
+			handleOptionsChange,
+			removeOption,
 			selectOption
 		} = this.props;
 
 		switch (eventType) {
 			case "custom":
 				return (
-					<div />
-					// <CustomEventOptions
-					// 	addOption={addOption}
-					// 	options={options}
-					// 	handleOptionsChange={handleOptionsChange}
-					// 	removeOption={removeOption}
-					// />
+					<CustomEventOptions
+						addCustomOption={addCustomOption}
+						options={options}
+						handleOptionsChange={handleOptionsChange}
+						removeOption={removeOption}
+					/>
 				);
 			case "day":
 				return <DayView selectOption={selectOption} date={date} />;

@@ -7,6 +7,7 @@ import StepEventOptions from "./StepEventOptions";
 
 interface IProps {
 	activeStep: number;
+	addCustomOption: (event: any) => void;
 	eventDescription: {
 		title: string;
 		createdBy: string;
@@ -16,7 +17,10 @@ interface IProps {
 	handleBack: () => void;
 	handleNext: () => void;
 	handleSubmit: () => void;
+	handleOptionsChange: (optionIndex: number, event: any) => void;
 	handleTextFieldChange: (field: string, value: string) => void;
+	options: Array<string>;
+	removeOption: (optionIndex: number, event: any) => void;
 	stepLabels: Array<string>;
 	selectOption: (e: any, value: string) => void;
 }
@@ -24,12 +28,16 @@ interface IProps {
 export default (props: IProps) => {
 	const {
 		activeStep,
+		addCustomOption,
 		eventDescription,
 		eventType,
 		handleBack,
 		handleNext,
+		handleOptionsChange,
 		handleSubmit,
 		handleTextFieldChange,
+		options,
+		removeOption,
 		stepLabels,
 		selectOption
 	} = props;
@@ -54,7 +62,14 @@ export default (props: IProps) => {
 			break;
 		case 2:
 			content = (
-				<StepEventOptions eventType={eventType} selectOption={selectOption} />
+				<StepEventOptions
+					addCustomOption={addCustomOption}
+					handleOptionsChange={handleOptionsChange}
+					eventType={eventType}
+					selectOption={selectOption}
+					options={options}
+					removeOption={removeOption}
+				/>
 			);
 			break;
 		case 3:
