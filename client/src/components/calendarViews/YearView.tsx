@@ -4,9 +4,8 @@ import "../../styles/YearView.css";
 
 import { MONTH_NAMES } from "../../helpers/constants";
 
-import Button from "@material-ui/core/Button";
-import Icon from "@material-ui/core/Icon";
 import TimeUnit from "./TimeUnit";
+import ViewHeader from "./ViewHeader";
 
 import ICalendarProps from "../../interfaces/ICalendarViewProps";
 
@@ -23,35 +22,30 @@ export default class YearView extends Component<ICalendarProps & IProps> {
 		displayYear: this.props.date.getFullYear()
 	};
 
+	handlePrevious = () => {
+		this.setState((prevState: IState) => ({
+			displayYear: prevState.displayYear - 1
+		}));
+	};
+
+	handleNext = () => {
+		this.setState((prevState: IState) => ({
+			displayYear: prevState.displayYear + 1
+		}));
+	};
+
 	render() {
 		const { selectOption, options } = this.props;
 		const { displayYear } = this.state;
 
 		return (
 			<div className="calendar">
-				<h2>
-					<Button
-						onClick={() =>
-							this.setState((prevState: IState) => ({
-								displayYear: prevState.displayYear - 1
-							}))
-						}
-					>
-						<Icon>arrow_left</Icon>
-						Previous
-					</Button>
-					{this.state.displayYear}
-					<Button
-						onClick={() =>
-							this.setState((prevState: IState) => ({
-								displayYear: prevState.displayYear + 1
-							}))
-						}
-					>
-						Next
-						<Icon>arrow_right</Icon>
-					</Button>
-				</h2>
+				<ViewHeader
+					displayValue={displayYear}
+					handlePrevious={this.handlePrevious}
+					handleNext={this.handleNext}
+				/>
+
 				<div id="yearView">
 					{MONTH_NAMES.map((name, i) => {
 						return (
