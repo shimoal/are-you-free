@@ -3,6 +3,7 @@ import * as React from 'react';
 import IEvent from '../../interfaces/IEvent';
 
 interface IResponse_Options {
+	label: string;
 	response_option: {
 		choice: string
 	}
@@ -19,6 +20,20 @@ interface IProps {
 }
 
 export default (props: IProps) => {
+	const responseTotals = {};
+	props.event.options.forEach(option => {
+		if (!responseTotals[option.label]) {
+			responseTotals[option.label] = 0;
+		}
+	});
+	props.responses.forEach(response => {
+		response.options.forEach(option => {
+			if (option.response_option.choice === 'Yes') {
+				responseTotals[option.label]++;
+			}
+		})
+	});
+	
 	return (
 		<div>
 			<h3 className="center">Responses</h3>
@@ -45,6 +60,14 @@ export default (props: IProps) => {
 									})}
 								</tr>);
 						})}
+						<tr>
+							<td>Total</td>
+							{props.event.options.map((option, i) => {
+								return <td key={`option-total=${i}`}>
+									{responseTotals[option.label]}
+								</td>
+							})}
+						</tr>
 					</tbody>
 				</table>
 			</div>
