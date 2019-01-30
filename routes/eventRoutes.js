@@ -23,7 +23,7 @@ module.exports = app => {
 
 	app.post("/api/events/new", async (req, res) => {
 		const {
-			body: { createdBy, title, eventType, options }
+			body: { createdBy, title, eventType, options, description }
 		} = req;
 
 		const linkID = uniqid();
@@ -36,7 +36,8 @@ module.exports = app => {
 			title: title,
 			eventType: eventType,
 			linkID,
-			options: labeledOptions
+			options: labeledOptions,
+			description,
 			}, {
 				include: [ {
 					association: Event.Options

@@ -13,6 +13,9 @@ const Event = db.define("event", {
 	},
 	linkID: {
 		type: Sequelize.STRING
+	},
+	description: {
+		type: Sequelize.STRING
 	}
 });
 

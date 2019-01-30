@@ -45,13 +45,14 @@ class CreateEvent extends Component<{} & RouteComponentProps> {
 	};
 
 	handleSubmit = (event: any) => {
-		const { createdBy, eventType, title, options } = this.state;
+		const { createdBy, eventType, title, options, description } = this.state;
 		axios
 			.post("/api/events/new", {
 				createdBy,
 				eventType,
 				title,
-				options
+				options,
+				description
 			})
 			.then(({ data }) => {
 				this.props.history.push("/events/created/" + data.linkID);
