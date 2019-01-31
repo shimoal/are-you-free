@@ -74,6 +74,19 @@ const getWeekDates = date => {
 	return `${weekStartingDate} - ${weekEndingDate}`;
 };
 
+
+// Returns an array of all dates in the Sun-Sat week of the date provided
+const getAllWeekDates = date => {
+	const dayIndex = date.getDay();
+	const dates = new Array(7).fill(null);
+
+	const sundayDate = new Date(new Date().setDate(date.getDate() - dayIndex));
+
+	return dates.map((date, i) => {
+		return new Date(new Date().setDate(sundayDate.getDate() + i));
+	});
+};
+
 export {
 	getNextMonth,
 	getNumDaysInMonth,
@@ -81,5 +94,6 @@ export {
 	getPreviousMonth,
 	getWeekEndingDate,
 	getWeekStartingDate,
-	getWeekDates
+	getWeekDates,
+	getAllWeekDates
 };
