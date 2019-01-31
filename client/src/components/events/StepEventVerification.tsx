@@ -32,7 +32,11 @@ export default (props: IProps) => {
 					<Typography>Description: {description}</Typography>
 					<Typography>Options:</Typography>
 					{options.map(option => {
-						return <Typography>{option}</Typography>;
+						return (
+							<Typography key={"verification-option-${option}"}>
+								{option}
+							</Typography>
+						);
 					})}
 				</CardContent>
 			</Card>

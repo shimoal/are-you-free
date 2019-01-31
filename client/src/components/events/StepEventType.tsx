@@ -14,7 +14,6 @@ interface IProps {
 
 export default (props: IProps) => {
 	const { eventType, handleEventTypeChange } = props;
-	console.log("event type:", eventType);
 	return (
 		<div>
 			<FormControl component="fieldset">
