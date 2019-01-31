@@ -80,10 +80,10 @@ const getAllWeekDates = date => {
 	const dayIndex = date.getDay();
 	const dates = new Array(7).fill(null);
 
-	const sundayDate = new Date(new Date().setDate(date.getDate() - dayIndex));
+	const sundayDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - dayIndex);
 
 	return dates.map((date, i) => {
-		return new Date(new Date().setDate(sundayDate.getDate() + i));
+		return new Date(sundayDate.getFullYear(), sundayDate.getMonth(), sundayDate.getDate() + i);
 	});
 };
 
