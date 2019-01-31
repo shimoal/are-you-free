@@ -2,7 +2,8 @@ import * as React from "react";
 const { Component } = React;
 
 import CustomEventOptions from "./CustomEventOptions";
-import DayView from "../calendarViews/DayView";
+// import DayView from "../calendarViews/DayView";
+import DateAndTimeByWeekView from "../calendarViews/DateAndTimeByWeekView";
 import MonthView from "../calendarViews/MonthView";
 import WeekView from "../calendarViews/WeekView";
 import YearView from "../calendarViews/YearView";
@@ -43,7 +44,11 @@ class StepEventOptions extends Component<IProps> {
 				);
 			case "day":
 				return (
-					<DayView options={options} selectOption={selectOption} date={date} />
+					<DateAndTimeByWeekView
+						options={options}
+						selectOption={selectOption}
+						date={date}
+					/>
 				);
 			case "week":
 				return (
