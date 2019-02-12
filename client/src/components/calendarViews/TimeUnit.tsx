@@ -27,8 +27,12 @@ const TimeBlock = (props: IProps) => {
         backgroundColor: selected ? "lightgreen" : ""
       }}
     >
-      <p>{label}</p>
-      <p>{selected && "selected"}</p>
+      <div>
+        {selected && (
+          <i className="small material-icons">check_circle_outline</i>
+        )}
+        {label}
+      </div>
     </Paper>
   );
 };
