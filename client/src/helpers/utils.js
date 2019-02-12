@@ -77,15 +77,39 @@ const getWeekDates = date => {
 
 // Returns an array of all dates in the Sun-Sat week of the date provided
 const getAllWeekDates = date => {
-	const dayIndex = date.getDay();
-	const dates = new Array(7).fill(null);
+	const sundayDate = getSundayDate(date);
+	const dates = [];
 
-	const sundayDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - dayIndex);
+	for (var i = 0; i < 7; i++) {
+		dates.push(new Date(sundayDate.getFullYear(), sundayDate.getMonth(), sundayDate.getDate() + i));
+	}
 
-	return dates.map((date, i) => {
-		return new Date(sundayDate.getFullYear(), sundayDate.getMonth(), sundayDate.getDate() + i);
-	});
+	return dates;
 };
+
+
+const getSundayDate = date => {
+	const dayIndex = date.getDay();
+	return new Date(date.getFullYear(), date.getMonth(), date.getDate() - dayIndex);
+}
+
+const getPreviousSundayDate = date => {
+	const sundayDate = getSundayDate(date);
+	return new Date(
+		sundayDate.getFullYear(),
+		sundayDate.getMonth(),
+		sundayDate.getDate() - 7
+	);
+}
+
+const getNextSundayDate = date => {
+	const sundayDate  = getSundayDate(date);
+	const nextSundayDate = new Date(
+		sundayDate.getFullYear(),
+		sundayDate.getMonth(),
+		sundayDate.getDate() + 7
+	);
+}
 
 export {
 	getNextMonth,
