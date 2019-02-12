@@ -20,7 +20,7 @@ export default function(props: IProps) {
 			<TimeUnit
 				options={options}
 				selectOption={selectOption}
-				label={label + hourLabel}
+				label={`${label} ${hourLabel}`}
 				key={hour}
 				height={100}
 				width={180}
