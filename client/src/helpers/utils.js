@@ -104,7 +104,7 @@ const getPreviousSundayDate = date => {
 
 const getNextSundayDate = date => {
 	const sundayDate  = getSundayDate(date);
-	const nextSundayDate = new Date(
+	return new Date(
 		sundayDate.getFullYear(),
 		sundayDate.getMonth(),
 		sundayDate.getDate() + 7
@@ -119,5 +119,8 @@ export {
 	getWeekEndingDate,
 	getWeekStartingDate,
 	getWeekDates,
-	getAllWeekDates
+	getAllWeekDates,
+	getSundayDate,
+	getPreviousSundayDate,
+	getNextSundayDate
 };
