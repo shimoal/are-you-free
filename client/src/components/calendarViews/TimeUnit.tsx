@@ -1,4 +1,5 @@
 import * as React from "react";
+import Icon from "@material-ui/core/Icon";
 import "../../styles/TimeUnit.css";
 
 import Paper from "@material-ui/core/Paper";
@@ -28,9 +29,7 @@ const TimeBlock = (props: IProps) => {
       }}
     >
       <div>
-        {selected && (
-          <i className="small material-icons">check_circle_outline</i>
-        )}
+        {selected && <Icon>check_circle_outline</Icon>}
         {label}
       </div>
     </Paper>
