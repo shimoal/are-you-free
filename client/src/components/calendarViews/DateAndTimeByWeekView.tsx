@@ -2,7 +2,7 @@ import * as React from "react";
 const { Component } = React;
 import "../../styles/WeekView.css";
 
-import { DAY_NAMES } from "../../helpers/constants";
+import { DAY_NAMES, MONTH_NAMES } from "../../helpers/constants";
 import { getAllWeekDates, getWeekDates } from "../../helpers/utils";
 import TimeBlocks from "./TimeBlocks";
 import ViewHeader from "./ViewHeader";
@@ -54,7 +54,7 @@ export default class DateAndTimeByWeekView extends Component<
 
 	render() {
 		const { selectOption, options } = this.props;
-		// const weekDates = getAllWeekDates(this.state.sundayDate);
+		const weekDates = getAllWeekDates(this.state.sundayDate);
 
 		return (
 			<div className="calendar">
@@ -66,20 +66,23 @@ export default class DateAndTimeByWeekView extends Component<
 
 				<div id="weekView">
 					{DAY_NAMES.map((name, i) => {
-						// const dateInfo = weekDates[i];
+						const dateInfo = weekDates[i];
 
-						// const label = `${name} ${
-						// 	MONTH_NAMES[dateInfo.getMonth()]
-						// } ${dateInfo.getDate()} ${dateInfo.getFullYear()}`;
+						const label = `${name} ${
+							MONTH_NAMES[dateInfo.getMonth()]
+						} ${dateInfo.getDate()}`;
 						return (
-							<div>
+							<div key={`weekday-${i}`}>
+								<h5>{label}</h5>
 								<TimeBlocks
 									abbreviation="AM"
+									label={label}
 									selectOption={selectOption}
 									options={options}
 								/>
 								<TimeBlocks
 									abbreviation="PM"
+									label={label}
 									selectOption={selectOption}
 									options={options}
 								/>
