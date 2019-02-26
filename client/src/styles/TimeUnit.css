@@ -1,10 +1,13 @@
 .timeblock {
-  border: 1px dotted lightgray;
-  color: darkgray;
-  margin: 4px;
-  padding: 0 40px;
+	align-items: center;
+	border: 1px dotted lightgray;
+	color: darkgray;
+	display: flex;
+	justify-content: center;
+	margin: 4px;
+	padding: 0 40px;
 }
 
 .timeblock:hover {
-  cursor: pointer;
+	cursor: pointer;
 }

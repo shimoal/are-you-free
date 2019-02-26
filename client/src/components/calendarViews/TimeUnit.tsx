@@ -25,9 +25,6 @@ const TimeBlock = (props: IProps) => {
         selectOption(event, label);
       }}
       style={{
-        alignItems: "center",
-        display: "flex",
-        justifyContent: "center",
         height,
         width,
         backgroundColor: selected ? "lightgreen" : ""
