@@ -3,6 +3,7 @@ import Icon from "@material-ui/core/Icon";
 import "../../styles/TimeUnit.css";
 
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
 interface IProps {
   selectOption: (event: any, value: string) => void;
@@ -15,6 +16,7 @@ interface IProps {
 const TimeBlock = (props: IProps) => {
   const { selectOption, label, height, width, options } = props;
   const selected = options.indexOf(label) > -1;
+  const checkMark = selected ? <Icon>check_circle_outline</Icon> : null;
 
   return (
     <Paper
@@ -28,10 +30,10 @@ const TimeBlock = (props: IProps) => {
         backgroundColor: selected ? "lightgreen" : ""
       }}
     >
-      <div>
-        {selected && <Icon>check_circle_outline</Icon>}
+      {checkMark}
+      <Typography align="center" variant="subtitle1">
         {label}
-      </div>
+      </Typography>
     </Paper>
   );
 };
