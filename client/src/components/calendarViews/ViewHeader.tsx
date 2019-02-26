@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 import Icon from "@material-ui/core/Icon";
 
 interface IProps {
@@ -13,16 +14,22 @@ export default (props: IProps) => {
 	const { displayValue, handlePrevious, handleNext } = props;
 
 	return (
-		<h2>
-			<Button onClick={handlePrevious}>
-				<Icon>arrow_left</Icon>
-				Previous
-			</Button>
-			{displayValue}
-			<Button onClick={handleNext}>
-				Next
-				<Icon>arrow_right</Icon>
-			</Button>
-		</h2>
+		<div style={{ width: "100%" }}>
+			<Grid container justify="space-between">
+				<Grid item>
+					<Button onClick={handlePrevious}>
+						<Icon>arrow_left</Icon>
+						Previous
+					</Button>
+				</Grid>
+				<Grid item>{displayValue}</Grid>
+				<Grid item>
+					<Button onClick={handleNext}>
+						Next
+						<Icon>arrow_right</Icon>
+					</Button>
+				</Grid>
+			</Grid>
+		</div>
 	);
 };
