@@ -1,6 +1,5 @@
 import * as React from "react";
 const { Component } = React;
-import "../../styles/YearView.css";
 
 import { MONTH_NAMES } from "../../helpers/constants";
 
@@ -41,7 +40,7 @@ export default class YearView extends Component<ICalendarProps & IProps> {
 		const { displayYear } = this.state;
 
 		return (
-			<div className="calendar">
+			<div>
 				<ViewHeader
 					displayValue={displayYear}
 					handlePrevious={this.handlePrevious}
