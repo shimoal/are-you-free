@@ -3,6 +3,7 @@ import * as React from "react";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Icon from "@material-ui/core/Icon";
+import Typography from "@material-ui/core/Typography";
 
 interface IProps {
 	displayValue: string;
@@ -22,7 +23,9 @@ export default (props: IProps) => {
 						Previous
 					</Button>
 				</Grid>
-				<Grid item>{displayValue}</Grid>
+				<Grid item>
+					<Typography variant="h2">{displayValue}</Typography>
+				</Grid>
 				<Grid item>
 					<Button onClick={handleNext}>
 						Next
