@@ -1,9 +1,11 @@
 import * as React from "react";
 const { Component } = React;
-import "../../styles/MonthView.css";
 
 import { MONTH_NAMES } from "../../helpers/constants";
 import { getNumDaysInMonth } from "../../helpers/utils";
+
+import CalendarView from "./CalendarView";
+import Grid from "@material-ui/core/Grid";
 import TimeUnit from "./TimeUnit";
 import ViewHeader from "./ViewHeader";
 
@@ -56,25 +58,29 @@ export default class MonthView extends Component<ICalendarProps & IProps> {
 
 		for (let i = 1; i <= daysInMonth; i++) {
 			days.push(
-				<TimeUnit
-					options={options}
-					selectOption={selectOption}
-					label={`${displayMonth} ${i.toString()} ${displayYear}`}
-					key={i}
-					height={80}
-					width={60}
-				/>
+				<Grid item>
+					<TimeUnit
+						options={options}
+						selectOption={selectOption}
+						label={`${displayMonth} ${i.toString()} ${displayYear}`}
+						key={i}
+						height={100}
+						width={100}
+					/>
+				</Grid>
 			);
 		}
 
 		return (
-			<div className="calendar">
+			<div>
 				<ViewHeader
 					displayValue={`${displayMonth} ${displayYear}`}
 					handleNext={this.handleNext}
 					handlePrevious={this.handlePrevious}
 				/>
-				<div id="month-calendar">{days}</div>
+				<CalendarView>
+					<Grid container>{days}</Grid>
+				</CalendarView>
 			</div>
 		);
 	}
