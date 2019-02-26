@@ -4,6 +4,8 @@ import "../../styles/YearView.css";
 
 import { MONTH_NAMES } from "../../helpers/constants";
 
+import CalendarView from "./CalendarView";
+import Grid from "@material-ui/core/Grid";
 import TimeUnit from "./TimeUnit";
 import ViewHeader from "./ViewHeader";
 
@@ -46,20 +48,24 @@ export default class YearView extends Component<ICalendarProps & IProps> {
 					handleNext={this.handleNext}
 				/>
 
-				<div id="yearView">
-					{MONTH_NAMES.map((name, i) => {
-						return (
-							<TimeUnit
-								selectOption={selectOption}
-								options={options}
-								label={`${name} ${displayYear}`}
-								key={i}
-								height={100}
-								width={100}
-							/>
-						);
-					})}
-				</div>
+				<CalendarView>
+					<Grid container>
+						{MONTH_NAMES.map((name, i) => {
+							return (
+								<Grid item>
+									<TimeUnit
+										selectOption={selectOption}
+										options={options}
+										label={`${name} ${displayYear}`}
+										key={i}
+										height={100}
+										width={100}
+									/>
+								</Grid>
+							);
+						})}
+					</Grid>
+				</CalendarView>
 			</div>
 		);
 	}
