@@ -75,12 +75,7 @@ class StepEventOptions extends Component<IProps> {
 		const date = new Date();
 		const calendarView = this.getView(date);
 
-		return (
-			<div className="row">
-				<h5>Options</h5>
-				{calendarView}
-			</div>
-		);
+		return <div className="row">{calendarView}</div>;
 	}
 }
 
