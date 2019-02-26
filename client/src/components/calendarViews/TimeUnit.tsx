@@ -25,15 +25,16 @@ const TimeBlock = (props: IProps) => {
         selectOption(event, label);
       }}
       style={{
+        alignItems: "center",
+        display: "flex",
+        justifyContent: "center",
         height,
         width,
         backgroundColor: selected ? "lightgreen" : ""
       }}
     >
       {checkMark}
-      <Typography align="center" variant="subtitle1">
-        {label}
-      </Typography>
+      <Typography variant="subtitle1">{label}</Typography>
     </Paper>
   );
 };
