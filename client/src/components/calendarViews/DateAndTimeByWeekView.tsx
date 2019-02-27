@@ -55,7 +55,7 @@ export default class DateAndTimeByWeekView extends Component<
 	};
 
 	render() {
-		const { selectOption, options } = this.props;
+		const { removeOption, selectOption, options } = this.props;
 		const weekDates = getAllWeekDates(this.state.sundayDate);
 
 		return (
@@ -80,6 +80,7 @@ export default class DateAndTimeByWeekView extends Component<
 									<TimeBlocks
 										abbreviation="AM"
 										label={label}
+										removeOption={removeOption}
 										selectOption={selectOption}
 										options={options}
 									/>
@@ -87,6 +88,7 @@ export default class DateAndTimeByWeekView extends Component<
 									<TimeBlocks
 										abbreviation="PM"
 										label={label}
+										removeOption={removeOption}
 										selectOption={selectOption}
 										options={options}
 									/>

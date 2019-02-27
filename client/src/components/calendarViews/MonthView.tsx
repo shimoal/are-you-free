@@ -48,7 +48,7 @@ export default class MonthView extends Component<ICalendarProps & IProps> {
 	};
 
 	render() {
-		const { selectOption, date, options } = this.props;
+		const { removeOption, selectOption, date, options } = this.props;
 		const { displayMonthIndex, displayYear } = this.state;
 		const displayMonth = MONTH_NAMES[displayMonthIndex];
 
@@ -61,6 +61,7 @@ export default class MonthView extends Component<ICalendarProps & IProps> {
 				<Grid item>
 					<TimeUnit
 						options={options}
+						removeOption={removeOption}
 						selectOption={selectOption}
 						label={`${displayMonth} ${i.toString()} ${displayYear}`}
 						key={i}

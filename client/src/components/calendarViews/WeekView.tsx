@@ -53,7 +53,7 @@ export default class WeekView extends Component<ICalendarProps & IProps> {
 	};
 
 	render() {
-		const { selectOption, options } = this.props;
+		const { removeOption, selectOption, options } = this.props;
 		const weekDates = getAllWeekDates(this.state.sundayDate);
 
 		return (
@@ -75,6 +75,7 @@ export default class WeekView extends Component<ICalendarProps & IProps> {
 							return (
 								<Grid item>
 									<TimeUnit
+										removeOption={removeOption}
 										selectOption={selectOption}
 										options={options}
 										label={label}

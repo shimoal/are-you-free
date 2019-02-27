@@ -46,25 +46,37 @@ class StepEventOptions extends Component<IProps> {
 				return (
 					<DateAndTimeByWeekView
 						options={options}
+						removeOption={removeOption}
 						selectOption={selectOption}
 						date={date}
 					/>
 				);
 			case "week":
 				return (
-					<WeekView options={options} selectOption={selectOption} date={date} />
+					<WeekView
+						options={options}
+						removeOption={removeOption}
+						selectOption={selectOption}
+						date={date}
+					/>
 				);
 			case "month":
 				return (
 					<MonthView
 						options={options}
+						removeOption={removeOption}
 						selectOption={selectOption}
 						date={date}
 					/>
 				);
 			case "year":
 				return (
-					<YearView options={options} selectOption={selectOption} date={date} />
+					<YearView
+						options={options}
+						removeOption={removeOption}
+						selectOption={selectOption}
+						date={date}
+					/>
 				);
 			default:
 				return <div />;

@@ -36,7 +36,7 @@ export default class YearView extends Component<ICalendarProps & IProps> {
 	};
 
 	render() {
-		const { selectOption, options } = this.props;
+		const { removeOption, selectOption, options } = this.props;
 		const { displayYear } = this.state;
 
 		return (
@@ -54,6 +54,7 @@ export default class YearView extends Component<ICalendarProps & IProps> {
 								<Grid item>
 									<TimeUnit
 										selectOption={selectOption}
+										removeOption={removeOption}
 										options={options}
 										label={`${name} ${displayYear}`}
 										key={i}

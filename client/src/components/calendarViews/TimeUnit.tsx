@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
 interface IProps {
+  removeOption: (optionIndex: number, event: any) => void;
   selectOption: (event: any, value: string) => void;
   label: string;
   height: number;
@@ -14,15 +15,20 @@ interface IProps {
 }
 
 const TimeBlock = (props: IProps) => {
-  const { selectOption, label, height, width, options } = props;
-  const selected = options.indexOf(label) > -1;
+  const { removeOption, selectOption, label, height, width, options } = props;
+  const selectedIndex = options.indexOf(label);
+  const selected = selectedIndex > -1;
   const checkMark = selected ? <Icon>check_circle_outline</Icon> : null;
 
   return (
     <Paper
       className={"timeblock"}
       onClick={event => {
-        selectOption(event, label);
+        if (selected) {
+          removeOption(selectedIndex, event);
+        } else {
+          selectOption(event, label);
+        }
       }}
       style={{
         height,
