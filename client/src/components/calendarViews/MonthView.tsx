@@ -60,6 +60,7 @@ export default class MonthView extends Component<ICalendarProps & IProps> {
 			days.push(
 				<Grid item>
 					<TimeUnit
+						displayLabel={`${i.toString()}`}
 						options={options}
 						removeOption={removeOption}
 						selectOption={selectOption}

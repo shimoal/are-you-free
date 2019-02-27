@@ -22,6 +22,7 @@ export default function(props: IProps) {
 		timeblocks.push(
 			<Grid item>
 				<TimeUnit
+					displayLabel={`${hourLabel}`}
 					options={options}
 					removeOption={removeOption}
 					selectOption={selectOption}

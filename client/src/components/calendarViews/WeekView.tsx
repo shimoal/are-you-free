@@ -68,13 +68,14 @@ export default class WeekView extends Component<ICalendarProps & IProps> {
 					<Grid container justify="center">
 						{DAY_NAMES.map((name, i) => {
 							const dateInfo = weekDates[i];
+							const month = MONTH_NAMES[dateInfo.getMonth()];
+							const date = dateInfo.getDate();
 
-							const label = `${name} ${
-								MONTH_NAMES[dateInfo.getMonth()]
-							} ${dateInfo.getDate()} ${dateInfo.getFullYear()}`;
+							const label = `${name} ${month} ${date} ${dateInfo.getFullYear()}`;
 							return (
 								<Grid item>
 									<TimeUnit
+										displayLabel={`${month} ${date}`}
 										removeOption={removeOption}
 										selectOption={selectOption}
 										options={options}
