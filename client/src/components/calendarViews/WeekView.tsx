@@ -7,6 +7,7 @@ import { getAllWeekDates, getWeekDates } from "../../helpers/utils";
 import CalendarView from "./CalendarView";
 import Grid from "@material-ui/core/Grid";
 import TimeUnit from "./TimeUnit";
+import Typography from "@material-ui/core/Typography";
 import ViewHeader from "./ViewHeader";
 
 import ICalendarProps from "../../interfaces/ICalendarViewProps";
@@ -74,6 +75,7 @@ export default class WeekView extends Component<ICalendarProps & IProps> {
 							const label = `${name} ${month} ${date} ${dateInfo.getFullYear()}`;
 							return (
 								<Grid item>
+									<Typography variant="h6">{`${name}`}</Typography>
 									<TimeUnit
 										displayLabel={`${month} ${date}`}
 										height={300}
