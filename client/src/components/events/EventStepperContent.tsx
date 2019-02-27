@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 import StepEventDescription from "./StepEventDescription";
 import StepEventType from "./StepEventType";
 import StepEventOptions from "./StepEventOptions";
@@ -92,20 +93,28 @@ export default (props: IProps) => {
 		<div>
 			<div>
 				<div>{content}</div>
-				<div>
-					<Button disabled={activeStep === 0} onClick={handleBack}>
-						Back
-					</Button>
-					{activeStep === stepLabels.length - 1 ? (
-						<Button variant="contained" color="primary" onClick={handleSubmit}>
-							Finish
+				<Grid container justify="center" spacing={40}>
+					<Grid item>
+						<Button disabled={activeStep === 0} onClick={handleBack}>
+							Back
 						</Button>
-					) : (
-						<Button variant="contained" color="primary" onClick={handleNext}>
-							Next
-						</Button>
-					)}
-				</div>
+					</Grid>
+					<Grid item>
+						{activeStep === stepLabels.length - 1 ? (
+							<Button
+								variant="contained"
+								color="primary"
+								onClick={handleSubmit}
+							>
+								Finish
+							</Button>
+						) : (
+							<Button variant="contained" color="primary" onClick={handleNext}>
+								Next
+							</Button>
+						)}
+					</Grid>
+				</Grid>
 			</div>
 		</div>
 	);
