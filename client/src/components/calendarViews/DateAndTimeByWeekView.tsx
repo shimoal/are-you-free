@@ -71,14 +71,18 @@ export default class DateAndTimeByWeekView extends Component<
 					<Grid container wrap="nowrap">
 						{DAY_NAMES.map((name, i) => {
 							const dateInfo = weekDates[i];
+							const month = MONTH_NAMES[dateInfo.getMonth()];
+							const date = dateInfo.getDate();
 
-							const label = `${name} ${
-								MONTH_NAMES[dateInfo.getMonth()]
-							} ${dateInfo.getDate()}`;
+							const label = `${name} ${month} ${date}`;
+
 							return (
 								<div key={`weekday-${i}`}>
 									<Grid item>
-										<Typography variant="h6">{label}</Typography>
+										<Typography variant="h6">{name}</Typography>
+										<Typography variant="subtitle1">
+											{month} {date}
+										</Typography>
 									</Grid>
 									<TimeBlocks
 										abbreviation="AM"
