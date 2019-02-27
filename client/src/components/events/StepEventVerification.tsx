@@ -21,10 +21,7 @@ export default (props: IProps) => {
 	} = props;
 	return (
 		<div>
-			<h4>
-				View your event below to make sure the information is correct. Go back
-				to previous screens to make any corrections.
-			</h4>
+			<h4>View your event below to make sure the information is correct.</h4>
 			<Card>
 				<CardContent>
 					<Typography>Title: {title}</Typography>
