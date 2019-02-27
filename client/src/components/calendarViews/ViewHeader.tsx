@@ -24,7 +24,7 @@ export default (props: IProps) => {
 					</Button>
 				</Grid>
 				<Grid item>
-					<Typography variant="h2">{displayValue}</Typography>
+					<Typography variant="h3">{displayValue}</Typography>
 				</Grid>
 				<Grid item>
 					<Button onClick={handleNext}>
