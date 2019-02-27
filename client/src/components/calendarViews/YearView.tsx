@@ -54,12 +54,12 @@ export default class YearView extends Component<ICalendarProps & IProps> {
 								<Grid item>
 									<TimeUnit
 										displayLabel={`${name}`}
-										selectOption={selectOption}
-										removeOption={removeOption}
-										options={options}
-										label={`${name} ${displayYear}`}
-										key={i}
 										height={100}
+										key={i}
+										label={`${name} ${displayYear}`}
+										options={options}
+										removeOption={removeOption}
+										selectOption={selectOption}
 										width={100}
 									/>
 								</Grid>

@@ -76,12 +76,12 @@ export default class WeekView extends Component<ICalendarProps & IProps> {
 								<Grid item>
 									<TimeUnit
 										displayLabel={`${month} ${date}`}
+										height={300}
+										key={i}
+										label={label}
+										options={options}
 										removeOption={removeOption}
 										selectOption={selectOption}
-										options={options}
-										label={label}
-										key={i}
-										height={300}
 										width={100}
 									/>
 								</Grid>

@@ -23,12 +23,12 @@ export default function(props: IProps) {
 			<Grid item>
 				<TimeUnit
 					displayLabel={`${hourLabel}`}
+					height={100}
+					label={`${label} ${hourLabel}`}
+					key={hour}
 					options={options}
 					removeOption={removeOption}
 					selectOption={selectOption}
-					label={`${label} ${hourLabel}`}
-					key={hour}
-					height={100}
 					width={100}
 				/>
 			</Grid>

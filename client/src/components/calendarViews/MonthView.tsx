@@ -61,12 +61,12 @@ export default class MonthView extends Component<ICalendarProps & IProps> {
 				<Grid item>
 					<TimeUnit
 						displayLabel={`${i.toString()}`}
+						height={100}
+						key={i}
+						label={`${displayMonth} ${i.toString()} ${displayYear}`}
 						options={options}
 						removeOption={removeOption}
 						selectOption={selectOption}
-						label={`${displayMonth} ${i.toString()} ${displayYear}`}
-						key={i}
-						height={100}
 						width={100}
 					/>
 				</Grid>
