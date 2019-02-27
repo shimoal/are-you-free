@@ -1,9 +1,11 @@
 import * as React from "react";
 const { Component } = React;
-import "../../styles/WeekView.css";
 
 import { DAY_NAMES, MONTH_NAMES } from "../../helpers/constants";
 import { getAllWeekDates, getWeekDates } from "../../helpers/utils";
+
+import CalendarView from "./CalendarView";
+import Grid from "@material-ui/core/Grid";
 import TimeUnit from "./TimeUnit";
 import ViewHeader from "./ViewHeader";
 
@@ -55,32 +57,36 @@ export default class WeekView extends Component<ICalendarProps & IProps> {
 		const weekDates = getAllWeekDates(this.state.sundayDate);
 
 		return (
-			<div className="calendar">
+			<div>
 				<ViewHeader
 					displayValue={getWeekDates(this.state.sundayDate)}
 					handlePrevious={this.handlePrevious}
 					handleNext={this.handleNext}
 				/>
 
-				<div id="weekView">
-					{DAY_NAMES.map((name, i) => {
-						const dateInfo = weekDates[i];
+				<CalendarView>
+					<Grid container justify="center">
+						{DAY_NAMES.map((name, i) => {
+							const dateInfo = weekDates[i];
 
-						const label = `${name} ${
-							MONTH_NAMES[dateInfo.getMonth()]
-						} ${dateInfo.getDate()} ${dateInfo.getFullYear()}`;
-						return (
-							<TimeUnit
-								selectOption={selectOption}
-								options={options}
-								label={label}
-								key={i}
-								height={300}
-								width={60}
-							/>
-						);
-					})}
-				</div>
+							const label = `${name} ${
+								MONTH_NAMES[dateInfo.getMonth()]
+							} ${dateInfo.getDate()} ${dateInfo.getFullYear()}`;
+							return (
+								<Grid item>
+									<TimeUnit
+										selectOption={selectOption}
+										options={options}
+										label={label}
+										key={i}
+										height={300}
+										width={100}
+									/>
+								</Grid>
+							);
+						})}
+					</Grid>
+				</CalendarView>
 			</div>
 		);
 	}
