@@ -16,7 +16,7 @@ export default (props: IProps) => {
 
 	return (
 		<div style={{ width: "100%" }}>
-			<Grid container justify="space-between">
+			<Grid alignItems="center" container justify="space-between">
 				<Grid item>
 					<Button onClick={handlePrevious}>
 						<Icon>arrow_left</Icon>
