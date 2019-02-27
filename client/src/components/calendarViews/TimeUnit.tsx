@@ -1,7 +1,8 @@
 import * as React from "react";
-import Icon from "@material-ui/core/Icon";
 import "../../styles/TimeUnit.css";
 
+import Grid from "@material-ui/core/Grid";
+import Icon from "@material-ui/core/Icon";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
@@ -45,8 +46,12 @@ const TimeBlock = (props: IProps) => {
         backgroundColor: selected ? "lightgreen" : ""
       }}
     >
-      {checkMark}
-      <Typography variant="subtitle1">{displayLabel}</Typography>
+      <Grid container justify="center">
+        <Grid item>{checkMark}</Grid>
+        <Grid item>
+          <Typography variant="subtitle1">{displayLabel}</Typography>
+        </Grid>
+      </Grid>
     </Paper>
   );
 };
