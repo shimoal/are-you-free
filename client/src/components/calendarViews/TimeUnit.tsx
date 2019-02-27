@@ -28,7 +28,9 @@ const TimeBlock = (props: IProps) => {
   } = props;
   const selectedIndex = options.indexOf(label);
   const selected = selectedIndex > -1;
-  const checkMark = selected ? <Icon>check_circle_outline</Icon> : null;
+  const checkMark = selected ? (
+    <Icon style={{ fontSize: 14 }}>check_circle_outline</Icon>
+  ) : null;
 
   return (
     <Paper
