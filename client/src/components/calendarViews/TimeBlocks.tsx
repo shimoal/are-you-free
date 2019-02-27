@@ -1,4 +1,6 @@
 import * as React from "react";
+
+import Grid from "@material-ui/core/Grid";
 import TimeUnit from "./TimeUnit";
 
 interface IProps {
@@ -17,16 +19,18 @@ export default function(props: IProps) {
 		const hourLabel = hour + ":00" + abbreviation;
 
 		timeblocks.push(
-			<TimeUnit
-				options={options}
-				selectOption={selectOption}
-				label={`${label} ${hourLabel}`}
-				key={hour}
-				height={100}
-				width={180}
-			/>
+			<Grid item>
+				<TimeUnit
+					options={options}
+					selectOption={selectOption}
+					label={`${label} ${hourLabel}`}
+					key={hour}
+					height={100}
+					width={100}
+				/>
+			</Grid>
 		);
 	}
 
-	return <div className="timeblocks">{timeblocks}</div>;
+	return <div>{timeblocks}</div>;
 }
