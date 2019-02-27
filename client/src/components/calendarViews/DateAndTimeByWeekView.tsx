@@ -7,6 +7,7 @@ import { getAllWeekDates, getWeekDates } from "../../helpers/utils";
 import CalendarView from "./CalendarView";
 import Grid from "@material-ui/core/Grid";
 import TimeBlocks from "./TimeBlocks";
+import Typography from "@material-ui/core/Typography";
 import ViewHeader from "./ViewHeader";
 
 import ICalendarProps from "../../interfaces/ICalendarViewProps";
@@ -76,7 +77,9 @@ export default class DateAndTimeByWeekView extends Component<
 							} ${dateInfo.getDate()}`;
 							return (
 								<div key={`weekday-${i}`}>
-									<h5>{label}</h5>
+									<Grid item>
+										<Typography variant="h6">{label}</Typography>
+									</Grid>
 									<TimeBlocks
 										abbreviation="AM"
 										label={label}
