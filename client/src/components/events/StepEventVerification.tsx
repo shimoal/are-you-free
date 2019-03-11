@@ -2,6 +2,7 @@ import * as React from "react";
 
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 interface IProps {
@@ -24,7 +25,14 @@ export default (props: IProps) => {
 			<h4>View your event below to make sure the information is correct.</h4>
 			<Card>
 				<CardContent>
-					<Typography>Title: {title}</Typography>
+					<Grid container justify="space-evenly">
+						<Grid item>
+							<Typography variant="h4">Title: </Typography>
+						</Grid>
+						<Grid item>
+							<Typography variant="h5">{title}</Typography>
+						</Grid>
+					</Grid>
 					<Typography>Creator: {createdBy}</Typography>
 					<Typography>Description: {description}</Typography>
 					<Typography>Options:</Typography>
